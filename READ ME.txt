@@ -1,0 +1,15 @@
+##### Database Details
+db_host = "localhost";
+db_name = "emeals_db";
+db_user = "emeals_user";
+db_password = "";
+
+
+#### Note
+Import emeals_db.sql after creating the above database details.
+
+
+##### Admin Dashboard Details
+Admin link: http:localhost/emeals/admin
+Username: admin
+Password: 12345
