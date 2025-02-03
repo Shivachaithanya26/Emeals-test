@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                sshagent(['PC SSH']) {
+                sshagent(['jenkins-ssh-key-id']) {
                     sh 'sudo git clone --depth=1 $GIT_REPO repo || (cd repo && sudo git pull origin main)'
                 }
             }
