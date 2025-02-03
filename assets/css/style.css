@@ -1,0 +1,5110 @@
+@font-face{
+    font-family: Montserrat-Bold;
+    src: url(fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face{
+    font-family: Montserrat-Regular;
+    src: url(fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face{
+    font-family: PlayfairDisplay-Regular;
+    src: url(fonts/Playfair/PlayfairDisplay-Regular.ttf);
+}
+@font-face{
+    font-family: Ballerick;
+    src: url(fonts/Ballerick/Ballerick.otf);
+}
+*{
+    font-family: Montserrat-Regular;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    color: #424e5a;
+    list-style-type: none;
+    text-decoration: none;
+}
+:root{
+    --bg-color: #a22617;
+    --color: #fffaea;
+    --active-color: #facc83;
+}
+/*
+*::-webkit-scrollbar{
+    width: 5px;
+    background-color: var(--bg-color);
+    background-color: rgb(237, 109, 0);
+    border-radius: 20px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    color: var(--bg-color);
+}
+*/
+html{
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
+}
+body{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+.header-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+.header-menu{
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var(--bg-color);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+.header-logo{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    padding: 20px 50px;
+}
+.header-logo h2 a{
+    color: var(--color);
+    font-family: Montserrat-Regular;
+    font-size: 20px;
+    font-weight: normal;
+}
+.header-logo h2 a i{
+    color: var(--color);
+}
+.menu{
+    width: 60%;
+    display: flex;
+}
+.menu i{
+    color: white;
+}
+.menu a i{
+    color: var(--color);
+}
+.menu ul{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    justify-content: flex-end;
+    align-content: center;
+    flex-direction: row;
+}
+.menu ul li{
+    position: relative;
+    margin: 0px;
+    width: 15%;
+    text-align: center;
+    height: 100%;
+    font-size: 14px;
+}
+.menu ul li .links{
+    display: block;
+    position: relative;
+    padding: 30px 5px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    height: 100%;
+    font-size: 14px;
+}
+.menu ul li #active{
+    background-color: var(--color);
+    color: var(--bg-color);
+}
+.menu ul li #active i{
+    color: var(--bg-color);
+}
+.menu ul li .links:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease-out;
+}
+.btn-container{
+    width: 10%;
+    display: none; 
+}
+.btn-container .nav-btn, .close-btn{
+    display: none;
+    position: absolute;
+    top: 30px;
+    cursor: pointer;
+    background-color: transparent;
+    right: 50px;
+    text-align: center;
+    border: none;
+}
+.btn-container .cart-btn{
+    display: none;
+    position: absolute;
+    top: 30px;
+    cursor: pointer;
+    background-color: transparent;
+    right: 90px;
+    text-align: center;
+    border: none;
+}
+.btn-container .nav-btn i, .close-btn i{
+    color: white;
+    font-size: 20px;
+}
+.btn-container .cart-btn i{
+    color: var(--color);
+    font-size: 20px;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.container .image-slide-container:nth-child(1){
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.container .image-slide-container:nth-child(2){
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.container .image-slide-container:nth-child(3){
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.container .image-slide-container img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+}
+.container .image-slide-container .overlay{
+    width: 100%;
+    height: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+    position: absolute;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.welcome-box-1{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    width: 60%;
+    height: 300px;
+    transform: translate(0%, -50%);
+    padding: 50px;
+    color: var(--color);
+}
+.welcome-box-2{
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    right: 0px;
+    width: 100%;
+    height: 300px;
+    padding: 50px;
+    text-align: center;
+    color: var(--color);
+}
+.welcome-box-3{
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    right: 60px;
+    width: 60%;
+    height: 300px;
+    padding: 50px;
+    color: var(--color);
+    text-align: right;
+}
+.welcome-text{
+    color: var(--color);
+    font-size: 50px;
+    font-family: Montserrat-Bold;
+    margin: 10px 0;
+}
+.welcome-subtext{
+    color: var(--bg-color);
+    padding: 10px 15px;
+    font-size: 18px;
+    width: 450px;
+    background-color: var(--active-color);
+    display: inline-block;
+    margin: 10px 0;
+}
+.welcome-link{
+    padding: 10px 15px;
+    display: inline-block;
+    background-color: white;
+    width: 150px;
+    margin: 20px 0;
+    font-size: 14px;
+    font-family: Montserrat-Regular;
+    color: var(--bg-color);
+    text-align: center;
+    box-shadow: 0px 0px 30px -10px rgba(248, 210, 47, 0.8);
+    border-radius: 5px;
+}
+.welcome-link:hover{
+    transform: scale(1.05);
+    color: var(--active-color);
+    background-color: var(--bg-color);
+    transition: all 0.5s ease-in;
+}
+.prevBtn{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0%, -50%);
+    display: block;
+    padding: 5px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    color: transparent;
+    cursor: pointer;
+}
+.nextBtn{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translate(0%, -50%);
+    display: block;
+    padding: 5px;
+    text-align: center;
+    color: transparent;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.prevBtn i, .nextBtn i{
+    color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    font-size: 50px;
+}
+.prevBtn i:hover, .nextBtn i:hover{
+    color: white;
+    transform: scale(1.1);
+    background-color: transparent;
+    transition: all 0.3s ease-in;
+}
+
+
+
+/** Styling for the featured food **/
+.featured-food-container{
+    width: 100%;
+    display: flex;
+    background-color: white;
+    padding: 50px;
+    padding-bottom: 5px;
+    height: auto;
+}
+.trending-container{
+    width: 100%;
+    position: relative;
+    display: block;
+    height: auto;
+}
+.trending-container h1{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+    font-family: Montserrat-Bold;
+    color: black;
+}
+.trending-container p{
+    width: 100%;
+    position: relative;
+    margin: 10px auto;
+    color: var(--bg-color);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.02);
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+}
+.trending-meals-wrapper{
+    width: 100%;
+    position: relative;
+    display: flex;
+    margin: 20px auto;
+    height: auto;
+    padding: 20px 50px;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.trending-meals-wrapper .meal-box{
+    width: 30%;
+    position: relative;
+    height: 450px;
+    text-align: center;
+    box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+.trending-meals-wrapper .meal-box .image-container{
+    width: 100%;
+    position: relative;
+    height: 350px;
+    box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.05);
+}
+.trending-meals-wrapper .meal-box .image-container img{
+    width: 100%;
+    position: relative;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.trending-meals-wrapper .meal-box .image-container img:hover{
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+.trend-text{
+    margin: 15px auto;
+    color: black;
+}
+.trend-text-heading{
+    margin: 0px auto;
+    font-family: Montserrat-Bold;
+    color: var(--bg-color);
+}
+.line{
+    width: 80px;
+    margin: 20px auto;
+    border: 2px solid var(--bg-color);
+}
+
+
+/** Styling for the section-three **/
+.section-three{
+    width: 100%;
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    height: auto;
+}
+.featured-container{
+    width: 100%;
+    position: relative;
+    display: block;
+    height: auto;
+}
+.featured-container h1{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+    color: black;
+    font-family: Montserrat-Bold;
+}
+.featured-container p{
+    width: 100%;
+    position: relative;
+    margin: 10px auto;
+    color: var(--bg-color);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.02);
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+}
+.featured-meals-wrapper{
+    width: 100%;
+    position: relative;
+    display: flex;
+    margin: 20px auto;
+    height: auto;
+    padding: 20px 110px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.featured-meals-wrapper .meal-box{
+    width: 24%;
+    position: relative;
+    height: 350px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.featured-meals-wrapper .meal-box .image-container{
+    width: 100%;
+    position: relative;
+    height: 250px;
+    box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.05);
+}
+.featured-meals-wrapper .meal-box .image-container img{
+    width: 100%;
+    position: relative;
+    height: 100%;
+    object-fit: fill;
+    cursor: pointer;
+}
+.featured-meals-wrapper .meal-box .image-container img:hover{
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+}
+.featured-category{
+    margin: 5px auto;
+    color: #9d9d9d;
+    font-size: 14px;
+    text-align: center;
+}
+.featured-food-name{
+    margin: 5px auto;
+    font-family: Montserrat-Bold;
+    color: var(--bg-color);
+    text-align: center;
+}
+.featured-food-price{
+    margin: 5px auto;
+    font-family: Montserrat-Bold;
+    color:black;
+    font-size: 14px;
+    text-align: center;
+}
+.featured-food-btn{
+    margin: 5px auto;
+    margin-bottom: 10px;
+    display: none;
+    background-color: var(--color);
+    width: 80%;
+    padding: 6px 10px;
+    position: relative;
+    top: 0;
+    font-family: Montserrat-Bold;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.featured-food-btn:hover{
+    background-color: white;
+    color: var(--bg-color);
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+}
+.meal-box .image-container a:hover .featured-food-btn{
+    display: block;
+    top: -120px;
+    transition: all 0.5s ease-in-out;
+}
+.section-four{
+    display: flex;
+    width: 100%;
+    height: 500px;
+    position: relative;
+    background-image: url(images/22.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0px auto;
+    margin-top: 0;
+}
+.section-four .overlay{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.section-four .overlay .overlay-content{
+    position: relative;
+    width: 45%;
+    padding: 50px;
+    height: 85%;
+    text-align: right;
+}
+.section-four .overlay .overlay-content .text-1, .text-2,
+.text-3, .text-4{
+    margin: 30px;
+}
+.section-four .overlay .overlay-content .text-1{
+    font-family: Montserrat-Bold;
+    font-size: 25px;
+}
+.section-four .overlay .overlay-content .text-2{
+    font-family: Montserrat-Bold;
+    font-size: 27px;
+}
+.section-four .overlay .overlay-content .text-3{
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+}
+.section-four .overlay .overlay-content .text-4 a{
+    padding: 10px;
+    display: inline-block;
+    background-color: var(--color);
+    width: 150px;
+    text-align: center;
+    border-radius: 5px;
+    color: var(--bg-color);
+    text-transform: uppercase;
+}
+.section-four .overlay .overlay-content .text-4 a span{
+    color: var(--bg-color);
+}
+.section-four .overlay .overlay-content .text-4 a:hover{
+    background-color: #eabf0a;
+    transition: all 0.5s ease-in-out;
+}
+.section-four .overlay .overlay-content .text-4 a:hover span{
+    transform: rotate(90deg);
+    transition: all 0.5s ease-in-out;
+}
+
+/* Cart Styling */
+.cart-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    color: black;
+    height: auto;
+    padding: 80px 80px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background-color: white;
+    flex-wrap: wrap;
+}
+.cart-container .backlink{
+    width: 100%;
+    height: 20px;
+    position: relative;
+    padding: 20px 0;
+    margin: 10px 0;
+    font-size: 14px;
+}
+.cart-container .backlink a{
+    color: black;
+    margin-right: 5px;
+}
+.cart-container .backlink i{
+    color: black;
+    margin-right: 5px;
+}
+.cart-container .backlink span{
+    color: #999;
+    margin-right: 5px;
+}
+.cart-container .cart-table-heading, .cart-table-content{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    position: relative;
+    padding: 10px 0;
+    margin: 0px 0;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.cart-container .cart-table-heading{
+    border: none;
+}
+.cart-container .cart-table-heading p, .cart-table-content .cart-details{
+    font-family: Montserrat-Bold;
+    padding: 20px 0;
+    width: 15%;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    color: black;
+}
+.cart-container .cart-table-heading p:first-child{
+    text-align: left;
+}
+.cart-container .cart-table-heading p:first-child, .cart-table-content .cart-details:first-child{
+    width: 40%;
+}
+.cart-container .cart-table-content .cart-details:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.cart-container .cart-table-content .cart-details .food-image{
+    position: relative;
+    width: 90px;
+    height: 80px;
+}
+.cart-container .cart-table-content .cart-details .food-name{
+    position: relative;
+    width: 75%;
+    padding: 30px 0;
+    color: black;
+}
+.cart-container .cart-table-content #price, #quantity, #gross, #delete-icon{
+    position: relative;
+    padding: 45px 0;
+    text-align: center;
+    display: block;
+    margin: 0px auto;
+    color: black;
+}
+.cart-container .cart-table-content #delete-icon a{
+    color: #901717;
+}
+.cart-container .cart-table-content #delete-icon a:hover{
+    color: #eb6565;
+    transition: all 0.5s ease-in-out;
+}
+.cart-container .cart-table-content .cart-details .food-image img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cart-action{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    color: black;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.cart-container .cart-action .cont-shopping{
+    position: relative;
+    width: 48%;
+    height: 100%;
+    padding: 30px 0;
+}
+.cart-container .cart-action .cont-shopping a{
+    position: relative;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    width: 200px;
+    border-radius: 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.cart-container .cart-action .cont-shopping a:hover{
+    background-color: var(--color);
+    color: black;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+}
+.cart-container .cart-action .empty-cart{
+    position: relative;
+    width: 48%;
+    text-align: right;
+    height: 100%;
+    padding: 30px 0;
+}
+.cart-container .cart-action .empty-cart button{
+    position: relative;
+    background-color: #fd4360;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 200px;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.cart-container .cart-action .empty-cart button:hover{
+    background-color: #c92942;
+    color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+}
+.proceed-action{
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.proceed-action .box-1{
+    position: relative;
+    display: block;
+    width: 60%;
+}
+.proceed-action .box-2{
+    position: relative;
+    display: block;
+    width: 40%;
+    background-color: var(--active-color);
+    color: white;
+    padding: 20px;
+    height: auto;
+    box-shadow: 0 0 30px -10px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+.proceed-action .box-2 .heading{
+    color: black;
+    font-family: Montserrat-Bold;
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+}
+.proceed-action .box-2 .sub-total-container{
+    display: block;
+    width: 100%;
+    position: relative;
+    margin: 15px 0;
+}
+.proceed-action .box-2 .sub-total-container .sub-total{
+    display: inline-block;
+    width: 45%;
+    text-align: left;
+    position: relative;
+    color: var(--bg-color);
+}
+.proceed-action .box-2 .sub-total-container .sub-total-amount{
+    display: inline-block;
+    width: 45%;
+    text-align: right;
+    position: relative;
+    color: black;
+}
+.proceed-action .box-2 .vat-container{
+    display: block;
+    width: 100%;
+    position: relative;
+    margin: 15px 0;
+}
+.proceed-action .box-2 .vat-container .vat-total{
+    display: inline-block;
+    width: 45%;
+    text-align: left;
+    position: relative;
+    color: var(--bg-color);
+}
+.proceed-action .box-2 .vat-container .vat-amount{
+    display: inline-block;
+    width: 45%;
+    text-align: right;
+    position: relative;
+    color: black;
+}
+.proceed-action .box-2 .total-container{
+    display: block;
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+}
+.proceed-action .box-2 .total-container .total{
+    display: inline-block;
+    width: 45%;
+    text-align: left;
+    position: relative;
+    color: white;
+    font-size: 30px;
+    font-family: Montserrat-Bold;
+    text-shadow: 2px 3px rgba(0, 0, 0, 0.1);
+}
+.proceed-action .box-2 .total-container .amount{
+    display: inline-block;
+    width: 45%;
+    text-align: right;
+    position: relative;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 3px rgba(0, 0, 0, 0.1);
+    font-family: Montserrat-Bold;
+}
+.proceed-action .box-2 .proceed-btn{
+    display: block;
+    width: 100%;
+    position: relative;
+    margin: 30px 0;
+    text-align: center;
+}
+.proceed-action .box-2 .proceed-btn a{
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    background-color: var(--bg-color);
+    color: var(--color);
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+.proceed-action .box-2 .proceed-btn a:hover{
+    transform: scale(1.05);
+    background-color: black;
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+
+/* Food-Info Styling */
+.food-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    color: black;
+    height: auto;
+    padding: 80px 80px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background-color: white;
+    flex-wrap: wrap;
+}
+.food-container .backlink{
+    width: 100%;
+    height: 20px;
+    position: relative;
+    padding: 20px 0;
+    margin: 10px 0;
+    font-size: 14px;
+}
+.food-container .backlink a{
+    color: black;
+    margin-right: 5px;
+}
+.food-container .backlink i{
+    color: black;
+    margin-right: 5px;
+}
+.food-container .backlink span{
+    color: #999;
+    margin-right: 5px;
+}
+.food-details-container{
+    width: 100%;
+    height: 500px;
+    margin: 20px auto;
+    margin-bottom: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: flex-start;
+    justify-content: space-between;
+    background-color: white;
+    flex-wrap: wrap;
+    position: relative;
+}
+.food-details-container .separator{
+    width: 48%;
+    height: 500px;
+    position: relative;
+    color: black;
+}
+.food-details-container .separator:first-child img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+}
+.food-details-container .separator:last-child .food-name{
+    color: black;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 30px;
+    font-family: Montserrat-Bold;
+    margin-bottom: 5px;
+    text-align: justify;
+    padding-left: 0px;
+}
+.food-details-container .separator:last-child .food-brief{
+    color: #333;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 14px;
+    font-family: Montserrat-Regular;
+    margin-bottom: 15px;
+    padding-left: 0px;
+}
+.food-details-container .separator:last-child .food-price{
+    color: var(--bg-color);
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 30px;
+    font-family: Montserrat-Bold;
+    margin-bottom: 25px;
+    padding-left: 0px;
+}
+.food-details-container .separator:last-child .food-description{
+    color: #444;
+    line-height: 25px;
+    text-align: justify;
+    width: 100%;
+    font-size: 14px;
+    font-family: Montserrat-regular;
+    margin-bottom: 30px;
+}
+.food-details-container .separator:last-child .food-quantity{
+    width: 100%;
+    margin-bottom: 30px;
+}
+.food-details-container .separator:last-child .food-quantity .qty-label{
+    display: inline-block;
+    color: black;
+    font-family: Montserrat-Bold;
+}
+.food-details-container .separator:last-child .food-quantity .qty-input{
+    display: inline-block;
+    padding: 15px;
+    border-radius: 50px;
+    width: 150px;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    text-align: center;
+    margin: 0 10px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.02);
+}
+.food-details-container .separator:last-child .food-quantity .add-to-cart-btn{
+    display: inline-block;
+    padding: 15px;
+    border-radius: 50px;
+    width: 150px;
+    background-color: var(--bg-color);
+    color: white;
+    border: none;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.food-details-container .separator:last-child .food-quantity .add-to-cart-btn:hover{
+    transform: scale(1.1);
+    background-color: var(--color);
+    color: black;
+    transition: all 0.5s ease-in-out;
+}
+.food-details-container .separator:last-child .checkbox-select{
+    width: 100%;
+    margin-bottom: 30px;
+}
+.food-details-container .separator:last-child .checkbox-select .checkbox-label{
+    display: block;
+    color: black;
+    font-family: Montserrat-Bold;
+    margin-bottom: 20px;
+}
+.food-details-container .separator:last-child .checkbox-select .box-input{
+    appearance: none;
+    -webkit- appearance: none;
+    -moz- appearance: none;
+    -o- appearance: none;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+    margin-right: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.food-details-container .separator:last-child .checkbox-select .box-input:checked{
+    background-color: var(--bg-color);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid white;
+}
+.food-details-container .separator:last-child .checkbox-select .checkbox-label-value{
+    color: black;
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* Review Container */
+.review-container{
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color: white;
+    margin-top: 20px;
+}
+.review-heading{
+    color: black;
+    font-family: Montserrat-Bold;
+}
+.review-box{
+    display: flex;
+    width: 50%;
+    position: relative;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+    margin: 30px 0;
+}
+.review-img-box{
+    width: 70px;
+    height: 70px;
+    border-radius: 200px;
+    overflow: hidden;
+    position: relative;
+    background-color: #999;
+}
+.review-img-box span{
+    position: relative;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+}
+.review-content{
+    width: 85%;
+    position: relative;
+    font-size: 14px;
+}
+.review-content .review-text{
+    margin-bottom: 5px;
+    color: #333;
+}
+.review-content .review-date{
+    margin: 5px 0;
+    font-style: italic;
+    color: #999;
+    font-size: 12px;
+}
+.review-content .review-star .yellow{
+    color: rgba(241, 207, 9, 1);
+}
+.review-content .review-star .grey{
+    color: rgba(0, 0, 0, 0.2);
+}
+.review-form{
+    width: 50%;
+    height: auto;
+    position: relative;
+}
+.review-form h3{
+    color: black;
+    margin: 20px auto;
+}
+.review-form .form-group{
+    width: 100%;
+    margin: 15px 0;
+}
+.review-form .form-group label{
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+    color: black;
+    font-family: Montserrat-Regular;
+}
+.review-form .form-group textarea{
+    width: 100%;
+    height: 100px;
+    margin: 10px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 15px;
+    animation: ease-in-out;
+}
+.review-form .form-group textarea:focus{
+    border: 1px solid var(--bg-color);
+    transition: all 0.3s ease-in-out;
+}
+.review-form .form-group input{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-size: 14px;
+    animation: ease-in-out;
+}
+.review-form .form-group input[type=range]{
+    width: 50%;
+    margin: 0;
+    border: none;
+}
+.review-form .form-group #display_rate{
+    color: black;
+    font-family: Montserrat-Bold;
+    font-size: 30px;
+    margin: 20px 0;
+}
+.review-form .form-group button{
+    width: 150px;
+    position: relative;
+    border: none;
+    background-color: var(--bg-color);
+    color: white;
+    padding: 10px;
+    display: block;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.review-form .form-group button:hover{
+    background-color: var(--active-color);
+    color: var(--bg-color);
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+
+/* Contact Styling */
+.contact-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    color: black;
+    height: auto;
+    padding: 80px 60px;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    background-color: white;
+    flex-wrap: wrap;
+}
+.contact-container .backlink{
+    width: 100%;
+    height: 20px;
+    position: relative;
+    padding: 20px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+.contact-container .backlink a{
+    color: black;
+    margin-right: 5px;
+}
+.contact-container .backlink i{
+    color: black;
+    margin-right: 5px;
+}
+.contact-container .backlink span{
+    color: #999;
+    margin-right: 5px;
+}
+.contact-container .contact-box{
+    width: 30%;
+    height: auto;
+    padding: 20px;
+    position: relative;
+    display: block;
+}
+.contact-container .contact-box:last-child{
+    width: 65%;
+    height: auto;
+    padding: 20px;
+    position: relative;
+    display: block;
+}
+
+
+/* Queries */
+@media screen and (max-width: 720px){
+@media screen and (min-width: 240px){
+.contact-container .contact-box{
+    width: 100%;
+}
+.contact-container .contact-box:last-child{
+    width: 100%;
+}   
+}
+}
+
+
+.contact-container .contact-box .contact-box-heading{
+    color: black;
+    margin: 20px 0;
+    font-size: 20px;
+    font-family: Montserrat-Bold;
+}
+.contact-container .contact-box .contact-box-holder{
+    margin: 20px 0;
+    position: relative;
+}
+.contact-container .contact-box .contact-box-holder .title{
+    margin: 20px 0;
+    position: relative;
+    font-size: 15px;
+}
+.contact-container .contact-box .contact-box-holder .title i{
+    color: var(--bg-color);
+    display: inline-block;
+    margin-right: 10px;
+}
+.contact-container .contact-box .contact-box-holder .title .main-title{
+    font-family: Montserrat-Bold;
+    color: black;
+}
+.contact-container .contact-box .contact-box-holder .main-content{
+    color: #999;
+    font-size: 14px;
+}
+.contact-container .contact-box .form-container{
+    width: 100%;
+    position: relative;
+}
+.contact-container .contact-box .form-container .form-group{
+    width: 100%;
+    position: relative;
+    margin: 15px auto;
+}
+.contact-container .contact-box .form-container .form-group input{
+    width: 85%;
+    position: relative;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 2px;
+}
+.contact-container .contact-box .form-container .form-group input:focus{
+    border: 1px solid var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+.contact-container .contact-box .form-container .form-group button{
+    width: 30%;
+    position: relative;
+    padding: 15px;
+    display: inline-block;
+    background-color: var(--bg-color);
+    border: none;
+    color: var(--color);
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: Montserrat-Bold;
+}
+.contact-container .contact-box .form-container .form-group button:hover{
+    background-color: var(--color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+}
+.contact-box .table-container{
+            width: 100%;
+            position: relative;
+            height: auto;
+        }
+.contact-box .table-container table{
+    width: 100%;
+    position: relative;
+    height: auto;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+.contact-box .table-container table tr th{
+    text-align: left;
+    background-color: var(--bg-color);
+    color: white;
+    padding: 5px;
+    font-weight: normal;
+}
+.contact-box .table-container table tr{
+    background-color: rgba(0, 0, 0, 0.02);
+    color: black;
+}
+.contact-box .table-container table tr:nth-child(even){
+    background-color: white;
+}
+.contact-box .table-container table tr td{
+    padding: 10px 5px;
+    color: black;
+}
+.contact-box .table-container table tr td a{
+    color: #ff4f4f;
+    text-align: center;
+}
+.contact-box .pagination{
+    display: block;
+    width: 100%;
+    position: relative;
+    height: auto;
+    margin: 10px 0;
+}
+.contact-box .pagination ul li{
+    display: inline-block;
+    width: auto;
+    position: relative;
+    margin: 10px 5px;
+    height: auto; 
+    font-size: 13px;
+}
+.contact-box .pagination ul li a{
+    display: block;
+    width: 100%;
+    position: relative;
+    height: auto;
+    text-align: center;
+    font-size: 12px;
+    color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+.contact-box .pagination ul li a:hover{
+    color: var(--color);
+    background-color: var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+.contact-box .order-table-container{
+    width: 100%;
+    position: relative;
+    height: auto;
+}
+.contact-box .order-table-container table{
+    width: 100%;
+    position: relative;
+    height: auto;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+.contact-box .order-table-container table tr th{
+    text-align: left;
+    padding: 10px;
+    color: var(--bg-color);
+    font-weight: normal;
+    font-family: Montserrat-Bold;
+}
+.contact-box .order-table-container table tr:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.02);
+}
+.contact-box .order-table-container table tr td{
+    text-align: left;
+    padding: 10px;
+    color: black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.contact-box .order-table-container table tr .tab-image img{
+    width: 40px;
+    height: 35px;
+}
+
+.summary-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    padding-right: 0px;
+    margin: 10px auto;
+    font-size: 13px;
+    text-align: right;
+    color: black;
+}
+.summary-container .subtotal, .vat, .total, .status{
+    margin: 10px auto;
+    color: black;
+    font-size: 15px;
+}
+.summary-container .notify{
+    margin: 10px auto;
+    color: black;
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+}
+.summary-container .cancel-btn-btn a{
+    margin: 10px auto;
+    background-color: #e85656;
+    display: inline-block;
+    color: white;
+    padding: 5px;
+}
+.summary-container h3{
+    font-family: Montserrat-Bold;
+    font-weight: normal;
+    color: black;
+    text-transform: uppercase;
+}
+
+
+
+
+
+ 
+/* Store Styling */
+.store-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    color: black;
+    height: auto;
+    padding: 80px 60px;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    background-color: white;
+    flex-wrap: wrap;
+}
+.store-container .backlink{
+    width: 100%;
+    height: 20px;
+    position: relative;
+    padding: 20px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+.store-container .backlink a{
+    color: black;
+    margin-right: 5px;
+}
+.store-container .backlink i{
+    color: black;
+    margin-right: 5px;
+}
+.store-container .backlink span{
+    color: #999;
+    margin-right: 5px;
+    text-transform: capitalize;
+}
+.store-container .store-box{
+    width: 20%;
+    height: auto;
+    padding: 20px;
+    position: relative;
+    display: block;
+}
+.store-container .store-box-2{
+    width: 78%;
+    height: auto;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.store-box .search-form{
+    width: 100%;
+    position: relative;
+    margin: 10px 0;
+    margin-bottom: 30px;
+}
+.store-box .search-form input{
+    width: 78%;
+    position: relative;
+    padding: 6px 10px;
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.store-box .search-form input:focus{
+    border: 1px solid rgba(152, 8, 3, 1);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s ease-in-out;
+}
+.store-box .search-form button{
+    width: 15%;
+    position: relative;
+    padding: 5px;
+    background-color: rgba(152, 8, 3, 1);
+    color: #f8d22f;
+    border-radius: 2px;
+    margin-right: 5px;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+.store-box .search-form button:hover{
+    color: rgba(152, 8, 3, 1);
+    background-color: #f8d22f;
+    transition: all 0.5s ease-in-out;
+}
+.store-box .search-form button i{
+    color: #f8d22f;
+}
+.store-box .search-form button:hover i{
+    color: rgba(152, 8, 3, 1);
+    transition: all 0.5s ease-in-out;
+}
+.store-category-header{
+    margin: 10px 0;
+    font-family: Montserrat-Bold;
+    color: black;
+    font-size: 18px;
+}
+.store-box hr{
+    border: 1px solid rgba(152, 8, 3, 1);
+    margin: 5px 0;
+    width: 60px;
+}
+.store-box .list-name{
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.store-box .list-name a{
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    position: relative;
+    text-transform: capitalize;
+    color: black;
+}
+.store-box .list-name a:hover{
+    color: rgba(152, 8, 3, 1);
+    transition: all 0.5s ease-in-out;
+}
+.store-box .list-name:hover{
+    border-bottom: 1px solid #f8d22f;
+    transition: all 0.5s ease-in-out;
+}
+.store-box .list-name .sub-list{
+    padding: 10px 0;
+    display: none;
+}
+.store-box .list-name .sub-list a{
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    position: relative;
+    color: #666;
+}
+.store-box-2 .meal-box{
+    position: relative;
+    width: 23%;
+    height: 300px;
+    margin: 10px 0;
+    box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.1);
+}
+.store-box-2 .food-search-result{
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+    color: black;
+    margin-top: 0px;
+    font-family: Montserrat-Bold;
+    text-transform: capitalize;
+}
+.store-box-2 .meal-box .image-container{
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+.store-box-2 .meal-box .image-container img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.store-box-2 .meal-box .image-container:hover{
+    box-shadow: 0 0 20px -10px rgba(152, 8, 3, 0.5);
+    transition: all 0.5s ease-in-out;
+}
+.store-box-2 .meal-box .image-container:hover img{
+    transform: scale(1.0);
+    transition: all 0.5s ease-in-out;
+}
+.store-box-2 .featured-food-btn{
+    font-size: 12px;
+    font-family: Montserrat-Regular;
+    width: 70%;
+}
+.category-btn{
+    position: fixed;
+    top: 105px;
+    right: 0px;
+    z-index: 2;
+    font-size: 20px;
+    padding: 5px;
+    background-color: #f8d22f;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.category-btn a{
+    color: rgba(152, 8, 3, 1);
+}
+
+
+
+
+/* Account Styling */
+.account-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    color: black;
+    height: auto;
+    padding: 80px 60px;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    background-color: white;
+    flex-wrap: wrap;
+}
+.account-container .backlink{
+    width: 100%;
+    height: 20px;
+    position: relative;
+    padding: 20px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+.account-container .backlink a{
+    color: black;
+    margin-right: 5px;
+}
+.account-container .backlink i{
+    color: black;
+    margin-right: 5px;
+}
+.account-container .backlink span{
+    color: #999;
+    margin-right: 5px;
+}
+.account-container .form-container{
+    width: 80%;
+    height: 420px;
+    display: flex;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 20px auto;
+    border-radius: 5px;
+    justify-content: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.account-container .sign-up-form{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 20px;
+}
+.account-container .sign-up-header{
+    width: 100%;
+    font-family: Montserrat-Bold;
+    font-size: 25px;
+    color: black;
+    text-align: center;
+    margin: 20px auto;
+}
+.account-container .sign-up-form .form-group{
+    width: 80%;
+    margin: 10px auto;
+    position: relative;
+}
+.account-container .sign-up-form .form-group input{
+    width: 100%;
+    padding: 15px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--bg-color);
+}
+.account-container .sign-up-form .form-group input:hover{
+    background-color: #fafafa;
+    transition: all 0.5s ease-in-out;
+}
+.account-container .sign-up-form .form-group input:focus{
+    border: 1px solid var(--bg-color);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+}
+.account-container .sign-up-form .form-group span{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    color: var(--bg-color);
+}
+.account-container .sign-up-form .form-group input:focus ~ span{
+    right: 20px;
+    transition: all 0.5s ease-in-out;
+}
+.account-container .sign-up-form .form-group button{
+    width: 50%;
+    display: block;
+    margin: 30px auto;
+    background-color: var(--bg-color);
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50px;
+    text-transform: uppercase;
+    position: relative;
+    border: none;
+    color: white;
+}
+.account-container .sign-up-form .form-group button:hover{
+    background-color: var(--color);
+    color: var(--bg-color);
+    transform: scale(1.02);
+    transition: all 0.5s ease-in-out;
+}
+.account-container .sign-up-message{
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+    position: absolute;
+    background-image: url(images/3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.account-container .sign-up-message .overlay{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: linear-gradient(to right, var(--bg-color), rgba(227, 68, 63, 0.95));
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 20px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.account-container .sign-up-message .overlay .hello-message{
+    color: white;
+    font-family: Montserrat-Bold;
+    font-size: 25px;
+    text-align: center;
+    margin: 10px 0;
+}
+.account-container .sign-up-message .overlay .btn-message{
+    color: white;
+    font-family: Montserrat-Regular;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+}
+.account-container .sign-up-message .overlay .btn-btn{
+    border: 1px solid white;
+    color: white;
+    width: 40%;
+    padding: 10px;
+    border-radius: 50px;
+    font-family: Montserrat-Regular;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px auto;
+    cursor: pointer;
+}
+.account-container .sign-up-message .overlay .btn-btn:hover{
+    background-color: white;
+    color: var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+
+
+.account-container .login-form{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    padding: 20px;
+}
+.account-container .login-header{
+    width: 100%;
+    font-family: Montserrat-Bold;
+    font-size: 25px;
+    color: black;
+    text-align: center;
+    margin: 20px auto;
+}
+.account-container .login-form .form-group{
+    width: 80%;
+    margin: 10px auto;
+    position: relative;
+}
+.account-container .login-form .form-group input{
+    width: 100%;
+    padding: 15px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--bg-color);
+}
+.account-container .login-form .form-group input:hover{
+    background-color: #fafafa;
+    transition: all 0.5s ease-in-out;
+}
+.account-container .login-form .form-group input:focus{
+    border: 1px solid var(--bg-color);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+}
+.account-container .login-form .form-group span{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    color: var(--bg-color);
+}
+.account-container .login-form .form-group input:focus ~ span{
+    right: 20px;
+    transition: all 0.5s ease-in-out;
+}
+.account-container .login-form .form-group button{
+    width: 50%;
+    display: block;
+    margin: 30px auto;
+    background-color: var(--bg-color);
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50px;
+    text-transform: uppercase;
+    position: relative;
+    border: none;
+    color: white;
+}
+.account-container .login-form .form-group button:hover{
+    background-color: var(--color);
+    color: var(--bg-color);
+    transform: scale(1.02);
+    transition: all 0.5s ease-in-out;
+}
+.account-container .login-message{
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    position: absolute;
+    background-image: url(images/3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: none;
+}
+.account-container .login-message .overlay{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: linear-gradient(to right, var(--bg-color), rgba(227, 68, 63, 0.95));
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 20px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.account-container .login-message .overlay .hello-message{
+    color: white;
+    font-family: Montserrat-Bold;
+    font-size: 25px;
+    text-align: center;
+    margin: 10px 0;
+}
+.account-container .login-message .overlay .btn-message{
+    color: white;
+    font-family: Montserrat-Regular;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+}
+.account-container .login-message .overlay .btn-btn{
+    border: 1px solid white;
+    color: white;
+    width: 40%;
+    padding: 10px;
+    border-radius: 50px;
+    font-family: Montserrat-Regular;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px auto;
+    cursor: pointer;
+}
+.account-container .login-message .overlay .btn-btn:hover{
+    background-color: white;
+    color: var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+.account-container .login-form .form-group a{
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    font-size: 14px;
+    color: black;
+    width: 40%;
+}
+.success{
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #62aa76;
+    font-family: Montserrat-Regular;
+}
+.danger{
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #f54545;
+    font-family: Montserrat-Regular;
+}
+
+
+
+
+
+/* Checkout Styling */
+.checkout-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    color: black;
+    height: auto;
+    padding: 80px 60px;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    background-color: white;
+    flex-wrap: wrap;
+}
+.checkout-container .backlink{
+    width: 100%;
+    height: 20px;
+    position: relative;
+    padding: 20px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+.checkout-container .backlink a{
+    color: black;
+    margin-right: 5px;
+}
+.checkout-container .backlink i{
+    color: black;
+    margin-right: 5px;
+}
+.checkout-container .backlink span{
+    color: #999;
+    margin-right: 5px;
+}
+.checkout-container form{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    background-color: white;
+    flex-wrap: wrap;
+}
+.checkout-container .checkout-box{
+    position: relative;
+    width: 70%;
+    padding: 20px;
+}
+.checkout-container .checkout-box .bill-heading{
+    width: 100%;
+    font-family: Montserrat-Bold;
+    color: var(--bg-color);
+    font-size: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.checkout-container .checkout-box .form-container{
+    width: 100%;
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.checkout-container .checkout-box .form-container .form-group-hw{
+    width: 48%;
+    position: relative;
+    height: auto;
+    margin: 30px 0;
+    margin-top: 0;
+}
+.checkout-container .checkout-box .form-container .form-group-hw label{
+    width: 100%;
+    display: block;
+    position: relative;
+    margin: 10px 0;
+    color: #333;
+    font-size: 14px;
+}
+.checkout-container .checkout-box .form-container .form-group-hw label span{
+    color: red;
+}
+.checkout-container .checkout-box .form-container .form-group-hw input{
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--bg-color);
+    font-size: 14px;
+}
+.checkout-container .checkout-box .form-container .form-group-fw{
+    width: 100%;
+    position: relative;
+    height: auto;
+    margin: 30px 0;
+    margin-top: 0;
+}
+.checkout-container .checkout-box .form-container .form-group-fw label{
+    width: 100%;
+    display: block;
+    position: relative;
+    margin: 10px 0;
+    color: #333;
+    font-size: 14px;
+}
+.checkout-container .checkout-box .form-container .form-group-fw label span{
+    color: red;
+}
+.checkout-container .checkout-box .form-container .form-group-fw input{
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--bg-color);
+    font-size: 14px;
+}
+.checkout-container .checkout-box .form-container input:focus{
+    border: 1px solid var(--bg-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+}
+.checkout-container .order-box{
+    position: relative;
+    width: 30%;
+    padding: 20px;
+    background-color: var(--bg-color);
+}
+.checkout-container .order-box .order-heading{
+    width: 100%;
+    font-family: Montserrat-Bold;
+    color: var(--color);
+    font-size: 20px;
+    border-bottom: 1px solid var(--color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.checkout-container .order-box .product-list{
+    width: 100%;
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.checkout-container .order-box .product-list{
+    width: 100%;
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.checkout-container .order-box .row-1, .row-2{
+    color: var(--color);
+    position: relative;
+    width: 50%;
+    font-family: Montserrat-Bold;
+    margin: 10px 0;
+    font-size: 16px;
+}
+.checkout-container .order-box .row-2{
+    text-align: right;
+}
+.checkout-container .order-box .row-food, .row-price{
+    color: white;
+    position: relative;
+    width: 50%;
+    margin: 10px 0;
+    font-size: 14px;
+}
+.checkout-container .order-box .row-price{
+    text-align: right;
+}
+.checkout-container .total-line{
+    width: 100%;
+    position: relative;
+    border: 0.2px solid rgba(248, 210, 47, 1);
+    margin: 20px auto;
+}
+.checkout-container .order-box .form-group-fw{
+    width: 100%;
+    display: block;
+    margin: 30px auto;
+}
+.checkout-container .order-box .form-group-fw .checkout-btn{
+    width: 80%;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-color: var(--color);
+    color: #980803;
+    font-family: Montserrat-bold;
+}
+.checkout-container .order-box .form-group-fw .cancel-btn{
+    width: 80%;
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-color: white;
+    color: #980803;
+    font-family: Montserrat-bold;
+}
+.checkout-container .order-box .form-group-fw .checkout-btn:hover{
+    background-color: #fff368;
+    border: 1px solid white;
+    color: black;
+    transition: all 0.5s ease-in-out;
+}
+.checkout-container .order-box .form-group-fw .cancel-btn:hover{
+    background-color: whitesmoke;
+    border: 1px solid white;
+    color: black;
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+
+
+
+/*Footer Styling*/
+.footer{
+    display: flex;
+    width: 100%;
+    height: 380px;
+    background-color: #1f1b1b;
+    position: relative;
+    padding: 80px 50px;
+    margin: 0px auto;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.footer-box{
+    width: 22%;
+    height: 100%;
+    padding: 10px 30px;
+    position: relative;
+    color: white;
+}
+.footer-box h3{
+    color: var(--active-color);
+    font-family: Montserrat-Bold;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 15px 0;
+    line-height: 30px;
+}
+.footer-box h1{
+    color: var(--active-color);
+    font-family: Montserrat-Bold;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 15px 0;
+    line-height: 30px;
+}
+.footer-box h1 a{
+    font-family: Montserrat-Regular;
+    font-weight: normal;
+    font-size: 20px;
+    color: var(--active-color);
+    display: block;
+}
+.footer-box h1 a i{
+    color: var(--active-color);
+}
+.footer-box p{
+    color: #afafaf;
+    font-family: Montserrat-Regular;
+    font-weight: 600;
+    line-height: 28px;
+    font-size: 14px;
+}
+.footer-box a{
+    color: #afafaf;
+    display: block;
+    font-family: Montserrat-Regular;
+    font-weight: 600;
+    line-height: 28px;
+    font-size: 14px;
+}
+.footer-box a:hover{
+    color: var(--color);
+    transition: all 0.5s ease-in-out;
+}
+.footer-box:nth-child(2){
+    width: 35%;
+    color: white;
+}
+.footer-box:nth-child(3), .footer-box:last-child{
+    width: 20%;
+}
+.footer-main{
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    height: 80px;
+    padding: 30px;
+    font-size: 14px;
+    background-color: #1f1b1b;
+    color: var(--active-color);
+    text-align: center;
+}
+
+
+
+
+
+
+
+/** Styling admin page **/
+.admin-login-container{
+    position: absolute;
+    width: 35%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: auto;
+}
+.admin-login-container .login-form{
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.admin-login-container .login-form .login-image{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-image: url(images/22.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.admin-login-container .login-form .login-image .overlay{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to left, var(--bg-color), rgba(203, 18, 11, 0.7));
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.admin-login-container .login-form .login-image .overlay .header{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 60%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0%);
+    color: white;
+    font-size: 30px;
+    font-family: Montserrat-Bold;
+}
+.admin-login-container .login-form .login-image .overlay .header span{
+    color: white;
+}
+.admin-login-container .login-form .login-welcome{
+    padding: 0 20px;
+    width: 100%;
+    padding-top: 20px;
+    position: relative;
+    color: var(--bg-color);
+    font-size: 20px;
+}
+.admin-login-container .login-form .form-container{
+    padding: 10px 20px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    color: var(--bg-color);
+}
+.admin-login-container .login-form .form-container .form-group{
+    position: relative;
+    width: 100%;
+    margin: 10px auto;
+    margin-bottom: 40px;
+}
+.admin-login-container .login-form .form-container .form-group input{
+    position: relative;
+    width: 100%;
+    padding: 10px 10px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    border: none;
+    font-size: 14px;
+    color: rgb(67, 5, 3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.admin-login-container .login-form .form-container .form-group input::placeholder{
+    color: black;
+}
+.admin-login-container .login-form .form-container .form-group span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: var(--bg-color);
+}
+.admin-login-container .login-form .form-container .form-group .label{
+    position: absolute;
+    top: -8px;
+    left: 5px;
+    font-size: 14px;
+    display: none;
+    color: var(--bg-color);
+    background-color: white;
+}
+.admin-login-container .login-form .form-container .form-group input:focus ~ .label{
+    display: block;
+    transition: all 0.5s ease-in-out;
+}
+.admin-login-container .login-form .form-container .form-group input:focus::placeholder{
+    color: transparent;
+    transition: all 0.5s ease-in-out;
+}
+.admin-login-container .login-form .form-container .form-group input:focus{
+    border-bottom: 1px solid var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+.admin-login-container .login-form .form-container .form-group button{
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    font-size: 12px;
+    color: var(--color);
+    cursor: pointer;
+    font-family: Montserrat-Bold;
+    background-image: linear-gradient(to left, var(--bg-color), rgba(203, 18, 11, 1));
+    background-color: none;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.admin-login-container .login-form .form-container .form-group button:hover{
+    background-color: var(--color);
+    background-image: none;
+    color: var(--bg-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+}
+.admin-login-container .login-form .form-container .form-group a{
+    color: var(--bg-color);
+    font-size: 14px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    width: 50%;
+}
+
+
+
+/** Dashboard Welcome Box Styling **/
+.admin-dashboard-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+.phone-view{
+    display: none;
+    position: relative;
+}
+.admin-nav{
+    width: 10%;
+    height: 100%;
+    position: relative;
+    background-color: var(--bg-color);
+    overflow: auto;
+}
+.admin-content-display{
+    width: 90%;
+    height: 100%;
+    position: relative;
+    background-color: #e8e8e8;
+    overflow: auto;
+}
+.admin-content-header{
+    width: 100%;
+    position: relative;
+    background-color: white;
+    height: 100px;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.1);
+}
+.admin-content-box{
+    width: 95%;
+    height: auto;
+    background-color: white;
+    margin: 30px auto;
+    border-radius: 5px;
+    display: block;
+    padding: 20px;
+    padding-bottom: 40px;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.1);
+}
+.admin-nav .logo{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    background-color: var(--bg-color);
+    text-align: center;
+    font-weight: normal;
+    padding: 30px 5px;
+}
+.admin-nav .logo a{
+    font-family: Montserrat-Regular;
+    font-size: 20px;
+    color: var(--color);
+}
+.admin-nav .logo i{
+    color: var(--color);
+}
+.admin-nav-menu{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: auto;
+}
+.admin-nav-menu ul{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.admin-nav-menu ul li{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 15px 5px;
+    text-align: center;
+    position: relative;
+    color: var(--color);
+    border-bottom: 1px solid rgba(152, 8, 3, 0.1);
+}
+.admin-nav-menu ul li a{ 
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-size: 14px;
+    color: var(--color);
+}
+.admin-nav-menu ul li a i{
+    color: var(--color);
+    display: block;
+    margin: 5px 0;
+}
+.admin-nav-menu ul li:hover{ 
+    background-color: var(--color);
+    transition: all 0.5s ease-in-out;
+}
+.admin-nav-menu ul li:hover a, i{ 
+    color: var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+.admin-nav-menu ul li:hover i{ 
+    color: var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+.admin-nav-menu ul li #active{ 
+    color: var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+.admin-nav-menu ul li #active{ 
+    color: var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+.admin-content-header .header-welcome-box{
+    display: flex;
+    position: relative;
+    width: 100%;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    flex-direction: row; 
+}
+.admin-content-header .header-welcome-box .name-box{
+    display: block;
+    position: relative;
+    width: 60%;
+    padding: 1px 25px;
+    color: black;
+    font-size: 14px;
+}
+.admin-content-header .header-welcome-box .name-box span{
+    color: var(--bg-color);
+}
+.admin-content-header .header-welcome-box .logout-box{
+    display: block;
+    position: relative;
+    width: 40%;
+    text-align: right;
+    padding: 0 25px;
+    color: var(--bg-color);
+    font-size: 12px;
+}
+.admin-content-header .header-welcome-box .logout-box a{
+    background-color: var(--bg-color);
+    color: var(--color);
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+.admin-content-header .header-welcome-box .logout-box a span{
+    color: var(--color);
+}
+.admin-content-box .total-sales-box{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 30px 0;
+    padding-top: 10px;
+    align-items: center;
+}
+.admin-content-box .total-sales-box .total-sales-number{
+    display: block;
+    width: 15%;
+    position: relative;
+}
+.admin-content-box .total-sales-number span{
+    font-size: 60px;
+    color: var(--bg-color);
+    display: block;
+    margin: 10px 0;
+    position: relative;
+}
+.admin-content-box .total-sales-number .heading{
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: black;
+}
+.admin-content-box .total-sales-number .details{
+    font-size: 20px;
+    color: var(--bg-color);
+    font-family: Montserrat-Bold;
+}
+.admin-content-box .total-sales-box-2{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 30px 0;
+    padding-top: 10px;
+    align-items: center;
+}
+.admin-content-box .total-sales-box-2 .total-sales-number{
+    display: block;
+    width: 20%;
+    position: relative;
+}
+.admin-content-box .total-sales-box-2 .total-sales-number span{
+    font-size: 40px;
+    color: #393939;
+    display: block;
+    margin: 10px 0;
+    position: relative;
+}
+.admin-content-box .total-sales-box-2 .total-sales-number .heading{
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: black;
+}
+.admin-content-box .total-sales-box-2 .total-sales-number .details{
+    font-size: 16px;
+    color: var(--bg-color);
+    font-family: Montserrat-Bold;
+}
+
+
+/** Admin Food Menu styling **/
+.admin-content-box .admin-nav-bar{
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    height: auto;
+    align-content: center;
+    margin-top: 10px;
+    align-items: center;
+}
+.admin-content-box .admin-nav-bar ul{
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow: auto;
+    flex-direction: row;
+    height: auto;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.admin-content-box .admin-nav-bar ul li{
+    width: 150px;
+    position: relative;
+    margin-right: 20px;
+    margin-top: 10px;
+    padding: 0px;
+    text-align: center;
+    font-size: 13px;
+}
+.admin-content-box .admin-nav-bar ul li a{
+    background-color: var(--bg-color);
+    position: relative;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: var(--color);
+    border-radius: 3px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+}
+.admin-content-box .admin-nav-bar ul li .active{
+    color: var(--bg-color);
+    background-color: var(--active-color);
+}
+.admin-content-box .admin-nav-bar ul li a:hover{
+    color: var(--bg-color);
+    background-color: var(--color);
+    transition: all 0.5s ease-in-out;
+}
+
+/** Admin food display table **/
+.admin-content-box .food-display-table{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.admin-content-box .food-display-table #table-heading{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+.admin-content-box .food-display-table #table-content{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#table-heading .serial-number, #table-heading .food-image, #table-heading .food-name, #table-heading .food-price, #table-heading .action{
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    width: 20%;
+    padding: 5px 10px;
+    font-family: Montserrat-Bold;
+    color: var(--color);
+    background-color: var(--bg-color);
+    position: relative;
+}
+#table-content .food-image img{
+    width: 50px;
+    height: 40px;
+    position: relative;
+    object-fit: fill;
+}
+#table-heading .action{
+    text-align: center;
+}
+#table-content .serial-number, .food-image, .food-name, .food-price, .action{
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    width: 18%;
+    padding: 5px 10px;
+    color: black;
+    position: relative;
+}
+#table-content .action{
+    font-size: 12px;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 20%;
+    padding: 5px;
+    color: black;
+}
+#table-content .action a:first-child{
+    color: black;
+    background-color: #5a5aea;
+    padding: 10px;
+    color: white;
+    width: 45%;
+    border-radius: 3px;
+    text-align: center;
+}
+#table-content .action a:first-child:hover{
+    background-color: #2d2d9f;
+    transition: all 0.5s ease-in-out;
+}
+#table-content .action a:last-child{
+    color: black;
+    background-color: #ed484e;
+    padding: 10px;
+    color: white;
+    width: 45%;
+    text-align: center;
+    border-radius: 3px;
+}
+#table-content .action a:last-child:hover{
+    background-color: #b92d32;
+    transition: all 0.5s ease-in-out;
+}
+
+
+/** Admin Add food styling **/
+.back-btn{
+    font-size: 13px;
+    background-color: var(--bg-color);
+    color: var(--color);
+    padding: 7px;
+    display: block;
+    width: 150px;
+    margin: 10px 0px;
+    text-align: center;
+    border-radius: 3px;
+}
+.back-btn:hover{
+    color: var(--bg-color);
+    background-color: var(--color);
+    transition: all 0.5s ease-in-out;
+}
+.box-content-heading{
+    font-size: 15px;
+    color: var(--bg-color);
+    padding: 10px;
+    display: block;
+    width: 100%;
+    font-family: Montserrat-Regular;
+    border-bottom: 1px solid rgba(248, 210, 47, 1);
+    margin-bottom: 10px;
+}
+.add-food-form-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+.add-food-form-container form{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.add-food-form-container form .box-1{
+    position: relative;
+    display: block;
+    width: 70%;
+}
+.add-food-form-container form .box-2{
+    position: relative;
+    display: block;
+    width: 25%;
+}
+.add-food-form-container form .box-2 .upload-notice{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--bg-color);
+    font-family: Montserrat-Bold;
+}
+.add-food-form-container form .box-2 .categories-list{
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+}
+.add-food-form-container form .box-2 .categories-list ul{
+    width: 100%;
+    position: relative;
+}
+.add-food-form-container form .box-2 .categories-list ul li{
+    width: 100%;
+    position: relative;
+    color: black;
+    margin: 10px auto;
+    font-size: 13px;
+    text-align: left;
+}
+.add-food-form-container form .box-2 .categories-list ul li span{
+    display: inline-block;
+    margin-right: 10px;
+    width: 150px;
+    color: var(--bg-color);
+    padding: 5px;
+    text-align: center;
+    background-color: var(--active-color);
+}
+.add-food-form-container form .box-2 .categories-list ul li a{
+    display: inline-block;
+    margin: 0 10px;
+}
+.add-food-form-container form .box-2 .categories-list ul li #cat-edit-btn{
+    background-color: #5a5aea;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    text-align: center;
+}
+.add-food-form-container form .box-2 .categories-list ul li #cat-delete-btn{
+    background-color: #ed484e;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    text-align: center;
+}
+.add-food-form-container form .box-2 .categories-list ul li #cat-edit-btn:hover{
+    background-color: #2d2d9f;
+    transition: all 0.5s ease-in-out;
+}
+.add-food-form-container form .box-2 .categories-list ul li #cat-delete-btn:hover{
+    background-color: #c1262c;
+    transition: all 0.5s ease-in-out;
+}
+.add-food-form-container .form-image{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.add-food-form-container .form-image img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.add-food-form-container .form-group{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+.add-food-form-container .form-group-file{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+    -moz-appearance: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.add-food-form-container .form-group-file input{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    padding: 10px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.add-food-form-container .form-group-file span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--color);
+    pointer-events: none;
+    cursor: pointer;
+    padding: 10px 5px;
+    text-align: center;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+}
+.add-food-form-container .form-group .form-label{
+    position: relative;
+    width: 20%;
+    display: inline-block;
+    font-size: 13px;
+    color: rgba(152, 8, 3, 0.8);
+}
+.add-food-form-container .form-group input, textarea, select{
+    position: relative;
+    width: 70%;
+    display: inline-block;
+    padding: 15px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    font-size: 13px;
+}
+.add-food-form-container .form-group select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+}
+.add-food-form-container .form-group select option{
+    font-size: 13px;
+    font-family: Montserrat-Regular;
+    cursor: pointer;
+}
+.add-food-form-container .form-group input:focus, textarea:focus, select:focus{
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgba(152, 8, 3, 0.7);
+    border-radius: 0px;
+    transition: all 0.5s ease-in-out;
+}
+.add-food-form-container .form-group span{
+    position: absolute;
+    top: 15px;
+    right: 12%;
+    color: var(--bg-color);
+}
+.add-food-form-container .form-group button{
+    position: relative;
+    background-color: var(--bg-color);
+    color: var(--color);
+    padding: 15px 5px;
+    border: none;
+    display: block;
+    width: 20%;
+    margin: 20px auto;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.add-food-form-container .form-group button:hover{
+    background-color: var(--color);
+    color: rgba(152, 8, 3, 0.7);
+    transform: scale(1.02);
+    transition: all 0.5s ease-in-out;
+}
+
+
+/** Edit Food Styling **/
+.edit-food-form-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+.edit-food-form-container .flex-form-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.edit-food-form-container .flex-form-container .box-1, .box-2{
+    position: relative;
+    width: 50%;
+    height: auto;
+}
+.edit-food-form-container .flex-form-container .form-image{
+    position: relative;
+    width: 80%;
+    height: 250px;
+    display: block;
+    margin: 10px 0;
+}
+.edit-food-form-container .flex-form-container .form-image img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.edit-food-form-container .flex-form-container .form-group-2{
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin: 10px 0;
+}
+.edit-food-form-container .flex-form-container .form-group-file-2{
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin: 10px 0;
+    -moz-appearance: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.edit-food-form-container .flex-form-container .form-group-file-2 input{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    padding: 10px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.edit-food-form-container .flex-form-container .form-group-file-2 span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--color);
+    pointer-events: none;
+    cursor: pointer;
+    padding: 10px 5px;
+    text-align: center;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+}
+.edit-food-form-container .flex-form-container .form-label{
+    position: relative;
+    width: 80%;
+    display: block;
+    margin: 10px 0;
+    font-size: 13px;
+    color: rgba(152, 8, 3, 0.8);
+}
+.edit-food-form-container .flex-form-container .form-group-2 .form-label{
+    position: relative;
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+    font-size: 13px;
+    color: rgba(152, 8, 3, 0.8);
+}
+.edit-food-form-container .flex-form-container .form-group-2 .form-input, .form-textarea, .form-select{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    padding: 15px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    font-size: 13px;
+}
+.edit-food-form-container .flex-form-container .form-group-2 select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+}
+.edit-food-form-container .flex-form-container .form-group-2 select option{
+    font-size: 13px;
+    font-family: Montserrat-Regular;
+    cursor: pointer;
+}
+.edit-food-form-container .flex-form-container .form-group-2 input:focus, textarea:focus, select:focus{
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgba(152, 8, 3, 0.7);
+    border-radius: 0px;
+    transition: all 0.5s ease-in-out;
+}
+.edit-food-form-container .flex-form-container .form-group-2 span{
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    color: var(--bg-color);
+}
+.edit-food-form-container .flex-form-container .form-group-2 button{
+    position: relative;
+    background-color: var(--bg-color);
+    color: var(--color);
+    padding: 15px 5px;
+    border: none;
+    display: block;
+    width: 150px;
+    margin: 20px 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.edit-food-form-container .flex-form-container .form-group-2 button:hover{
+    background-color: var(--color);
+    color: rgba(152, 8, 3, 0.7);
+    transform: scale(1.02);
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+/** Order Styling **/
+.admin-order-container{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow-x: auto;
+}
+.admin-order-container table{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+.admin-order-container table tr{
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+.admin-order-container table tr th{
+    position: relative;
+    height: auto;
+    padding: 15px 5px;
+    text-align: left;
+    font-weight: normal;
+    font-size: 13px;
+    width: auto;
+    background-color: var(--bg-color);
+    color: white;
+    font-family: Montserrat-Bold;
+}
+.admin-order-container table tr td{
+    height: auto;
+    padding: 15px 5px;
+    width: auto;
+    text-align: left;
+    font-size: 13px;
+    color: var(--bg-color);
+}
+.admin-order-container table tr{
+    border-bottom: 1px solid rgba(255, 244, 207, 0.5);
+}
+.admin-order-container table tr:nth-child(even){
+    background-color: rgba(255, 244, 207, 0.1);
+}
+.admin-order-container table tr th:first-child{
+    height: auto;
+    width: 40px;
+    padding: 10px;
+}
+.admin-order-container table tr th:nth-child(5){
+    text-align: center;
+}
+.admin-order-container table tr th:nth-child(6){
+    text-align: center;
+}
+.admin-order-container table tr th:nth-child(7){
+    text-align: center;
+}
+.admin-order-container table tr td:nth-child(1){
+    color: black;
+}
+.admin-order-container table tr td:nth-child(2){
+    color: black;
+}
+.admin-order-container table tr td:nth-child(5){
+    text-align: center;
+}
+.admin-order-container table tr td:nth-child(6){
+    text-align: center;
+}
+.admin-order-container table tr td:nth-child(7){
+    text-align: center;
+}
+.admin-order-container table tr td:nth-child(5) a{
+    color: var(--bg-color);
+}
+.admin-order-container table tr td:nth-child(6) a{
+    color: var(--bg-color);
+}
+.admin-order-container table tr td:nth-child(7) a{
+    color: var(--bg-color);
+}
+.admin-content-box .pagination{
+    display: block;
+    width: 100%;
+    position: relative;
+    height: auto;
+    margin: 10px 0;
+}
+.admin-content-box .pagination ul li{
+    display: inline-block;
+    width: auto;
+    position: relative;
+    margin: 10px 5px;
+    height: auto; 
+    font-size: 13px;
+}
+.admin-content-box .pagination ul li a{
+    display: block;
+    width: 100%;
+    position: relative;
+    height: auto;
+    text-align: center;
+    font-size: 12px;
+    color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+.admin-content-box .pagination ul li a:hover{
+    color: var(--color);
+    background-color: var(--bg-color);
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+
+/** Admin-order-table Details Styling **/
+.order-details-container{
+    width: 80%;
+    height: auto;
+    margin: 0px auto;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.order-details-container .box-one{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+}
+.order-details-container .box-one .box-one-holder{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 20px 0;
+    text-align: center;
+}
+.order-details-container .box-two{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: var(--bg-color);
+    padding: 10px;
+    color: var(--color);
+    align-items: center;
+}
+.order-details-container .box-one .order-img{
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin: 10px auto;
+}
+.order-details-container .box-one .order-img img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.order-details-container .box-one .order-fn{
+    position: relative;
+    margin: 5px auto;
+    font-family: Montserrat-Bold;
+    color: var(--bg-color);
+    font-size: 13px;
+}
+.order-details-container .box-one .order-fp{
+    position: relative;
+    margin: 5px auto;
+    color: black;
+    font-size: 13px;
+}
+.order-details-container .box-one .order-fq{
+    position: relative;
+    margin: 5px auto;
+    color: var(--bg-color);
+    font-size: 13px;
+}
+.order-details-container .box-two .box-two-holder{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0px 0;
+    text-align: center;
+}
+.order-details-container .box-two .order-tp{
+    color: var(--color);
+    font-size: 14px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.order-details-container .box-two .order-tq{
+    color: var(--color);
+    font-size: 14px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.order-details-container .box-two .order-st{
+    color: var(--color);
+    font-size: 14px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.order-details-container .box-two .order-v{
+    color: var(--color);
+    font-size: 14px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.order-details-container .box-two .order-t{
+    color: var(--bg-color);
+    font-size: 16px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+    width: 200px;
+    font-family: Montserrat-Bold;
+    background-color: var(--color);
+}
+.order-details-container .box-two .order-ot{
+    color: var(--bg-color);
+    font-size: 16px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+    width: 95%;
+    font-family: Montserrat-Regular;
+    background-color: var(--color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/** This is for screen resolutions between 240px and 1080px **/
+@media screen and (max-width: 1080px){
+@media screen and (min-width: 240px){
+.header-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+.header-menu{
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var(--bg-color);
+    z-index: 10;
+}
+.header-logo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 14px;
+    font-family:  Montserrat-Bold;
+}
+.header-logo h2 a{
+    color: var(--color);
+}
+.menu{
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 80px;
+    height: 100vh;
+    background-color: rgba(238, 60, 38, 0.9);
+    left: 0;
+}
+.menu i{
+    color: white;
+}
+.menu a i{
+    color: var(--color);
+}
+.menu ul{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    justify-content: none;
+    align-content: none;
+    flex-direction: none;
+}
+.menu ul li{
+    position: relative;
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+}
+.menu ul li .links{
+    display: block;
+    position: relative;
+    padding: 15px 5px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    height: 100%;
+    font-size: 12px;
+}
+.menu ul li #active{
+    background-color: var(--color);
+    color: var(--bg-color);
+}
+.menu ul li #active i{
+    color: var(--bg-color);
+}
+.menu ul li .links:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease-out;
+}
+.btn-container{
+    width: 10%;
+    display: block; 
+}
+.btn-container .nav-btn{
+    display: block;
+    position: absolute;
+    top: 28px;
+    cursor: pointer;
+    background-color: transparent;
+    right: 20px;
+    text-align: center;
+    border: none;
+}
+.btn-container .cart-btn{
+    display: block;
+    right: 50px;
+    text-align: center;
+    top: 28px;
+}
+.btn-container .close-btn{
+    right: 20px;
+    top: 28px;
+}
+.btn-container .nav-btn i, .close-btn i{
+    color: white;
+    font-size: 20px;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.container .image-slide-container:nth-child(1){
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.container .image-slide-container:nth-child(2){
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.container .image-slide-container:nth-child(3){
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.container .image-slide-container img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+}
+.container .image-slide-container .overlay{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    top: 0;
+    left: 0;
+    position: absolute;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.welcome-box-1{
+    display: block;
+    position: absolute;
+    left: 0px;
+    transform: translate(0%, -50%);
+    width: 100%;
+    height: auto;
+    padding: 50px 40px;
+    color: var(--color);
+}
+.welcome-box-2{
+    display: block;
+    position: absolute;
+    transform: translate(0%, -50%);
+    left: 0px;
+    width: 100%;
+    height: auto;
+    padding: 50px 40px;
+    color: var(--color);
+    text-align: center;
+}
+.welcome-box-3{
+    display: block;
+    position: absolute;
+    transform: translate(0%, -50%);
+    left: 0px;
+    width: 100%;
+    height: auto;
+    padding: 50px 40px;
+    color: var(--color);
+}
+.welcome-text{
+    font-size: 20px;
+    font-family: Montserrat-Bold;
+    margin: 5px 0;
+    position: relative;
+}
+.welcome-subtext{
+    padding: 10px;
+    font-size: 12px;
+    width: auto;
+    display: inline-block;
+    margin: 5px 0;
+}
+.welcome-link{
+    padding: 10px 15px;
+    display: inline-block;
+    width: 150px;
+    margin: 10px 0;
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+}
+.prevBtn{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    color: transparent;
+    cursor: pointer;
+}
+.nextBtn{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    color: transparent;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.prevBtn i, .nextBtn i{
+    color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    font-size: 30px;
+}
+.prevBtn i:hover, .nextBtn i:hover{
+    color: white;
+    transform: scale(1.1);
+    background-color: transparent;
+    transition: all 0.3s ease-in;
+}
+
+    
+
+    
+    
+
+/** Styling for the featured food **/
+.featured-food-container{
+    padding: 50px 20px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+}
+.trending-container h1{
+    font-size: 18px;
+}
+.trending-container p{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.trending-meals-wrapper{
+    margin: 0px auto;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.trending-meals-wrapper .meal-box{
+    width: 100%;
+    margin: 0px auto;
+    height: 410px;
+    margin-bottom: 30px;
+}
+.trending-meals-wrapper .meal-box .image-container{
+    height: 300px;
+}
+    
+    
+/** Styling for the section-three **/
+.section-three{
+    padding: 0px 15px;
+}
+.featured-container h1{
+	font-size: 18px;
+    color: black;
+}
+.featured-container p{
+	font-size: 14px;
+}
+.featured-meals-wrapper{
+    margin: 10px auto;
+    padding: 0px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.featured-meals-wrapper .meal-box{
+    width: 48%;
+    margin: 10px auto;
+    height: 250px;
+    margin-bottom: 30px;
+}
+.featured-meals-wrapper .meal-box .image-container{
+    width: 100%;
+    position: relative;
+    height: 150px;
+    box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.08);
+}
+.featured-category{
+    text-align: center;
+}
+.featured-food-name{
+    text-align: center;
+}
+.featured-food-price{
+    text-align: center;
+} 
+.featured-food-btn{
+    width: 80%;
+    font-size: 13px;
+}    
+    
+    
+    
+
+.section-four .overlay{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+.section-four .overlay .overlay-content:first-child{
+    display: none;
+}
+.section-four .overlay .overlay-content{
+    position: relative;
+    width: 100%;
+    padding: 50px 10px;
+    height: 70%;
+    text-align: right;
+}
+.section-four .overlay .overlay-content .text-1, .text-2,
+.text-3, .text-4{
+    margin: 25px;
+    color: whitesmoke;
+}
+.section-four .overlay .overlay-content .text-1{
+    font-family: Montserrat-Bold;
+    font-size: 16px;
+}
+.section-four .overlay .overlay-content .text-2{
+    font-family: Montserrat-Bold;
+    font-size: 18px;
+}
+.section-four .overlay .overlay-content .text-3{
+    font-family: Montserrat-Regular;
+    font-size: 14px;
+}
+.section-four .overlay .overlay-content .text-4 a{
+    padding: 10px;
+    display: inline-block;
+    background-color: var(--color);
+    width: 150px;
+    font-size: 12px;
+    border-radius: 5px;
+    text-align: center;
+    color: var(--bg-color);
+    text-transform: uppercase;
+}
+.section-four .overlay .overlay-content .text-4 a span{
+    color: var(--bg-color);
+}
+.section-four .overlay .overlay-content .text-4 a:hover{
+    background-color: #eabf0a;
+    transition: all 0.5s ease-in-out;
+}
+    
+    
+/* Cart Styling */
+.cart-container{
+    padding: 80px 10px;
+    overflow: auto;
+}
+*::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+.cart-container .backlink{
+    padding: 15px 0;
+    height: 50px;
+    margin: 0px;
+    margin-top: 10px;
+}
+.cart-container .cart-table-heading, .cart-table-content{
+    justify-content: space-between;
+}
+.cart-container .cart-table-heading p, .cart-table-content .cart-details{
+    font-family: Montserrat-Bold;
+    text-align: left;
+    padding: 10px 0px;
+    width: 18%;
+    font-size: 12px;
+    display: flex;
+}
+.cart-container .cart-table-heading p:first-child, .cart-table-content .cart-details:first-child{
+    width: 18%;
+}
+.cart-container .cart-table-content .cart-details:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.cart-container .cart-table-content .cart-details .food-image{
+    position: relative;
+    width: 60px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+.cart-container .cart-table-content .cart-details .food-name{
+    position: relative;
+    width: 100%;
+    padding: 0px;
+}
+.cart-container .cart-table-content #price, #quantity, #gross, #delete-icon{
+    position: relative;
+    padding: 20px 0px;
+    text-align: left;
+}
+.cart-container .cart-table-content #quantity, #delete-icon{
+    padding: 20px 15px;
+}
+.cart-container .cart-table-content .cart-details .food-image img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}    
+.cart-action{
+    flex-direction: column;
+}
+.cart-container .cart-action .cont-shopping{
+    position: relative;
+    width: 90%;
+    padding: 30px 0;
+    padding-bottom: 10px;
+}
+.cart-container .cart-action .empty-cart{
+    width: 90%;
+    margin: 0px auto;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 12px;
+}
+.cart-container .cart-action .cont-shopping a{
+    width: 100%;
+    margin: 0px auto;
+    font-size: 12px;
+}
+.cart-container .cart-action .empty-cart button{
+    position: relative;
+    margin: 0px auto;
+    width: 100%;
+    font-size: 12px;
+}
+.proceed-action{
+    flex-direction: row;
+}
+.proceed-action .box-1{
+    display: none;
+    width: 0%;
+}
+.proceed-action .box-2{
+    width: 90%;
+    margin: 10px auto;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+    background-color: var(--active-color);
+}
+.proceed-action .box-2 .heading{
+    font-size: 16px;
+}
+.proceed-action .box-2 .sub-total-container .sub-total-amount{
+    font-size: 14px;
+}
+.proceed-action .box-2 .vat-container{
+    font-size: 14px;
+}
+.proceed-action .box-2 .total-container .total{
+    font-size: 25px;
+    color: white;
+}
+.proceed-action .box-2 .total-container .amount{
+    font-size: 25px;
+    color: white;
+}
+    
+    
+
+    
+    
+/* Food-Info Styling */
+.food-container{
+    padding: 80px 20px;
+}
+.food-details-container{
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    
+}
+.food-details-container .separator{
+    width: 100%;
+    height: 320px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+}
+.food-details-container .separator:last-child{
+    height: auto;
+}
+.food-details-container .separator:last-child .food-name{
+    font-size: 20px;
+    padding: 5px 0;
+}
+.food-details-container .separator:last-child .food-brief{
+    font-size: 13px;
+}
+.food-details-container .separator:last-child .food-price{
+    font-size: 25px;
+    text-align: left;
+    padding: 5px 0;
+}
+.food-details-container .separator:last-child .food-quantity .qty-input{
+    padding: 10px;
+    width: 60px;
+    font-size: 13px;
+}
+.food-details-container .separator:last-child .food-quantity .add-to-cart-btn{
+    padding: 10px;
+    width: 120px;
+    font-size: 13px;
+}    
+    
+
+    
+/* Review Container */
+.review-container{
+    display: block;
+    width: 100%;
+}
+.review-heading{
+    color: black;
+    font-family: Montserrat-Bold;
+}
+.review-box{
+    display: flex;
+    width: 100%;
+}
+.review-img-box{
+    width: 50px;
+    height: 50px;
+}
+.review-img-box span{
+    position: relative;
+    font-size: 20px;
+    padding: 15px 0;
+}
+.review-content{
+    width: 70%;
+    position: relative;
+}
+.review-content .review-text{
+    font-size: 13px;
+}
+.review-content .review-star .yellow{
+    color: rgba(241, 207, 9, 1);
+    font-size: 13px;
+}
+.review-content .review-star .grey{
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 13px;
+}
+.review-form{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.review-form h3{
+    color: black;
+    margin: 20px auto;
+    margin-top: 50px;
+}
+.review-form .form-group label{
+    font-size: 13px;
+    font-family: Montserrat-Regular;
+}
+.review-form .form-group textarea{
+    font-size: 13px;
+    animation: ease-in-out;
+}
+.review-form .form-group input{
+    width: 100%;
+}
+.review-form .form-group input[type=range]{
+    width: 100%;
+}
+.review-form .form-group #display_rate{
+    color: black;
+    font-family: Montserrat-Bold;
+    font-size: 20px;
+    margin: 0;
+}
+.review-form .form-group button{
+    font-size: 13px;
+    width: 100%;
+}    
+    
+    
+    
+
+/* Contact Styling */
+.contact-container{
+    padding: 80px 0px;
+    flex-direction: row;
+}
+.contact-container .backlink{
+    width: 100%;
+}
+.contact-container .contact-box{
+    width: 100%;
+    margin: 5px 0;
+}
+.contact-container .contact-box .contact-box-heading{
+    font-size: 16px;
+}
+.contact-container .contact-box .contact-box-holder{
+    margin: 20px 0;
+    position: relative;
+}
+.contact-container .contact-box .contact-box-holder .title{
+    margin: 20px 0;
+    position: relative;
+}
+.contact-container .contact-box .contact-box-holder .title i{
+    font-size: 14px;
+}
+.contact-container .contact-box .contact-box-holder .title .main-title{
+    font-size: 14px;
+}
+.contact-container .contact-box .contact-box-holder .main-content{
+    color: #999;
+    font-size: 12px;
+}
+.contact-container .contact-box .form-container .form-group input{
+    width: 100%;
+}
+.contact-container .contact-box .form-container .form-group button{
+    width: 100%;
+    font-size: 14px;
+}
+    
+    
+    
+/* Store Styling */
+.store-container{
+    padding: 80px 20px;
+}
+.store-container .backlink{
+    padding: 20px 0px;
+}
+.store-container .store-box{
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    position: relative;
+    display: block;
+}
+.store-container .store-box-2{
+    width: 100%;
+    padding: 20px 0;
+}
+.store-box .search-form{
+    width: 100%;
+    position: relative;
+    margin: 10px 0;
+    margin-bottom: 30px;
+}
+.store-box .search-form input{
+    width: 80%;
+    position: relative;
+    padding: 15px;
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.store-box .search-form button{
+    width: 15%;
+    position: relative;
+    padding: 15px 5px;
+    background-color: var(--bg-color);
+    color: var(--color);
+    border-radius: 2px;
+    margin-right: 5px;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+.store-box .search-form button i{
+    color: var(--color);
+}
+.store-category-header{
+    margin: 10px 0;
+    font-family: Montserrat-Bold;
+    color: black;
+    font-size: 18px;
+}
+.store-box hr{
+    border: 1px solid var(--bg-color);
+    margin: 5px 0;
+    width: 60px;
+}
+.store-box .list-name{
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.store-box .list-name a{
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.store-box-2 .meal-box{
+    position: relative;
+    width: 48%;
+    height: 250px;
+    margin: 10px 0;
+}
+.store-box-2 .meal-box .image-container{
+    position: relative;
+    width: 100%;
+    height: 150px;
+}    
+
+
+    
+
+/* Account Styling */
+.account-container{
+    padding: 80px 10px;
+}
+.account-container .backlink{
+    padding: 20px 0px;
+}
+.account-container .form-container{
+    width: 100%;
+    height: 420px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.account-container .sign-up-form{
+    width: 70%;
+    height: 100%;
+    padding: 5px;
+}
+.account-container .sign-up-header{
+    width: 100%;
+    font-size: 14px;
+    margin: 20px auto;
+    margin-top: 30px;
+}
+.account-container .sign-up-form .form-group{
+    width: 90%;
+}
+.account-container .sign-up-form .form-group input{
+    width: 100%;
+    padding: 15px;
+}
+.account-container .sign-up-form .form-group button{
+    width: 100%;
+    display: block;
+    margin: 30px auto;
+    font-size: 12px;
+}
+.account-container .sign-up-message{
+    width: 30%;
+}
+.account-container .sign-up-message .overlay{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+.account-container .sign-up-message .overlay .hello-message{
+    font-size: 14px;
+    margin: 10px 0;
+}
+.account-container .sign-up-message .overlay .btn-message{
+    font-family: Montserrat-Regular;
+    font-size: 12px;
+}
+.account-container .sign-up-message .overlay .btn-btn{
+    padding: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    width: 80%;
+}
+
+.account-container .login-form{
+    width: 70%;
+    padding: 10px;
+}
+.account-container .login-header{
+    width: 100%;
+    font-size: 14px;
+    margin-top: 40px;
+}
+.account-container .login-form .form-group{
+    width: 90%;
+    margin: 10px auto;
+    position: relative;
+}
+.account-container .login-form .form-group input{
+    width: 100%;
+    padding: 15px;
+}
+.account-container .login-form .form-group button{
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+}
+.account-container .login-message{
+    width: 30%;
+    height: 100%;
+}
+.account-container .login-message .overlay{
+    padding: 5px;
+}
+.account-container .login-message .overlay .hello-message{
+    font-size: 14px;
+}
+.account-container .login-message .overlay .btn-message{
+    font-size: 12px;
+}
+.account-container .login-message .overlay .btn-btn{
+    width: 80%;
+    padding: 6px;
+    font-size: 12px;
+}
+.account-container .login-form .form-group a{
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+}    
+    
+
+/* Checkout Styling */
+.checkout-container{
+    padding: 80px 20px;
+}
+.checkout-container .backlink{
+    padding: 20px 0;
+}
+.checkout-container .checkout-box{
+    width: 100%;
+    padding: 20px 0;
+}
+.checkout-container .checkout-box .bill-heading{
+    font-size: 16px;
+}
+.checkout-container .checkout-box .form-container .form-group-hw{
+    width: 100%;
+    position: relative;
+    height: auto;
+    margin: 30px 0;
+    margin-top: 0;
+}
+.checkout-container .order-box{
+    width: 100%;
+}
+.checkout-container .order-box .order-heading{
+    font-size: 16px;
+}
+.checkout-container .order-box .row-1, .row-2{
+    font-size: 14px;
+}
+.checkout-container .order-box .row-food, .row-price{
+    font-size: 12px;
+}
+.checkout-container .order-box .row-price{
+    text-align: right;
+}
+.checkout-container .order-box .form-group-fw .checkout-btn{
+    width: 100%;
+    padding: 15px;
+    font-size: 13px;
+}
+.checkout-container .order-box .form-group-fw .cancel-btn{
+    width: 100%;
+    padding: 15px;
+    font-size: 13px;
+}
+
+    
+    
+/* Footer */    
+.footer{
+    display: flex;
+    width: 100%;
+    height: 750px;
+    background-color: #1f1b1b;
+    position: relative;
+    padding: 50px 10px;
+    margin: 0px auto;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.footer-box{
+    width: 100%;
+    height: 150px;
+    padding: 10px 10px;
+    position: relative;
+    color: white;
+}
+.footer-box h1 a{
+    font-family: Montserrat-Regular;
+    font-weight: normal;
+    width: 200px;
+    font-size: 20px;
+    color: var(--active-color);
+    display: block;
+}
+.footer-box h1 a i{
+    color: var(--active-color);
+}
+.footer-box h3{
+    color: var(--active-color);
+    font-family: Montserrat-Bold;
+    font-weight: normal;
+    font-size: 14px;
+    margin: 15px 0;
+    line-height: 25px;
+}
+.footer-box p{
+    color: #afafaf;
+    font-family: Montserrat-Regular;
+    font-weight: 600;
+    line-height: 25px;
+    font-size: 12px;
+    text-align: justify;
+}
+.footer-box a{
+    color: #afafaf;
+    display: block;
+    width: 150px;
+    font-family: Montserrat-Regular;
+    font-weight: 600;
+    line-height: 22px;
+    font-size: 12px;
+}
+.footer-box a:hover{
+    color: var(--color);
+    transition: all 0.5s ease-in-out;
+}
+.footer-box:first-child{
+    width: 100%;
+    color: white;
+}
+.footer-box:nth-child(2){
+    width: 100%;
+    color: white;
+}
+.footer-box:nth-child(3), .footer-box:last-child{
+    width: 100%;
+}
+.footer-main{
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    height: 80px;
+    padding: 30px;
+    font-size: 14px;
+    background-color: #1f1b1b;
+    color: var(--active-color);
+    text-align: center;
+}
+}
+    
+    
+    
+    
+/** Styling admin page **/
+
+/** Admin Login Page Stylying **/
+.admin-login-container{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+    box-shadow: none;
+    border-radius: none;
+    background-color: white;
+    overflow: auto;
+}
+.admin-login-container .login-form{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: none;
+}
+.admin-login-container .login-form .login-image{
+    position: relative;
+    width: 100%;
+    height: 120px;
+}
+.admin-login-container .login-form .login-image .overlay{
+    border-top-left-radius: none;
+    border-top-right-radius: none;
+}
+.admin-login-container .login-form .login-image .overlay .header{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 60%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0%);
+    color: white;
+    font-size: 25px;
+    font-family: Montserrat-Bold;
+}
+.admin-login-container .login-form .login-welcome{
+    padding: 0 20px;
+    width: 100%;
+    padding-top: 30px;
+    font-size: 25px;
+}
+.admin-login-container .login-form .form-container{
+    margin: 20px 0;
+}
+.admin-login-container .login-form .form-container .form-group{
+    position: relative;
+    width: 100%;
+    margin: 10px auto;
+    margin-bottom: 50px;
+}
+.admin-login-container .login-form .form-container .form-group input{
+    position: relative;
+    width: 100%;
+    padding: 10px 10px;
+    padding-left: 5px;
+    padding-bottom: 15px;
+    font-size: 12px;
+}
+.admin-login-container .login-form .form-container .form-group span{
+    position: absolute;
+    font-size: 12px;
+}
+.admin-login-container .login-form .form-container .form-group .label{
+    position: absolute;
+    top: -8px;
+    left: 5px;
+    font-size: 12px;
+    display: none;
+    color: var(--bg-color);
+    background-color: white;
+}
+.admin-login-container .login-form .form-container .form-group button{
+    position: relative;
+    margin-bottom: 20px;
+}
+.admin-login-container .login-form .form-container .form-group a{
+    color: var(--bg-color);
+    width: 50%;
+    font-size: 12px;
+    text-align: center;
+    display: block;
+    position: relative;
+    margin: 10px auto;
+}
+    
+    
+    
+/** Dashboard Page Styling **/    
+.admin-dashboard-container{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 100px;
+}
+.phone-view{
+    width: 100%;
+    height: 100px;
+    display: block;
+    background-color: var(--bg-color);
+    position: fixed;
+    z-index: 10;
+}
+.phone-view .logo{
+    width: 50%;
+    height: 100px;
+    position: relative;
+    background-color: var(--bg-color);
+    text-align: left;
+    font-weight: normal;
+    padding: 35px 15px;
+}
+.phone-view .logo a{
+    font-family: Montserrat-Regular;
+    color: var(--color);
+}
+.phone-view .logo i{
+    color: var(--color);
+}
+.phone-view #open{
+    position: absolute;
+    color: var(--color);
+    height: 50px;
+    top: 35px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.phone-view #close{
+    position: absolute;
+    color: var(--color);
+    height: 50px;
+    top: 35px;
+    right: 15px;
+    display: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+.admin-nav{
+    width: 0%;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    height: 100%;
+    z-index: 10;
+    overflow: auto;
+}
+.admin-content-display{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #e8e8e8;
+    overflow: auto;
+}
+.admin-content-header{
+    width: 100%;
+    position: relative;
+    background-color: white;
+    height: 100px;
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.1);
+}
+.admin-content-box{
+    width: 95%;
+    height: auto;
+}
+.admin-nav .logo{
+    display: none;
+}
+.admin-nav .logo a{
+    font-family: Montserrat-Regular;
+    color: var(--color);
+}
+.admin-nav .logo i{
+    color: var(--color);
+}
+.admin-nav-menu{
+    width: 100%;
+    height: 120%;
+    position: relative;
+    overflow: auto;
+}
+.admin-nav-menu ul{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.admin-nav-menu ul li{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 15px 10px;
+    text-align: left;
+    position: relative;
+    color: var(--color);
+}
+.admin-nav-menu ul li a{ 
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    position: relative;
+    display: inline-block;
+    margin: 0 5px; 
+    color: var(--color);
+}
+.admin-nav-menu ul li a i{
+    color: var(--color);
+    display: inline-block;
+    margin: 10px;
+    width: 30px;
+}
+.admin-content-header .header-welcome-box{
+    display: flex;
+    position: relative;
+}
+.admin-content-header .header-welcome-box .name-box{
+    display: block;
+    position: relative;
+    width: 60%;
+    padding: 1px 5px;
+    color: black;
+    font-size: 14px;
+}
+.admin-content-header .header-welcome-box .name-box span{
+    color: var(--bg-color);
+}
+.admin-content-header .header-welcome-box .logout-box{
+    display: block;
+    padding: 0 5px;
+    color: var(--bg-color);
+    font-size: 12px;
+}
+.admin-content-header .header-welcome-box .logout-box a{
+    background-color: var(--bg-color);
+    color: var(--color);
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+.admin-content-header .header-welcome-box .logout-box a span{
+    color: var(--color);
+}
+.admin-content-box .total-sales-box .total-sales-number{
+    display: block;
+    width: 50%;
+    position: relative;
+    text-align: center;
+}
+.admin-content-box .total-sales-number span{
+    font-size: 50px;
+}
+.admin-content-box .total-sales-number .heading{
+    font-size: 12px;
+}
+.admin-content-box .total-sales-number .details{
+    font-size: 16px;
+}
+.admin-content-box .total-sales-box-2 .total-sales-number{
+    display: block;
+    width: 25%;
+    position: relative;
+    text-align: center;
+}
+.admin-content-box .total-sales-box-2 .total-sales-number span{
+    font-size: 30px;
+    color: #414141;
+}
+.admin-content-box .total-sales-box-2 .total-sales-number .heading{
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: black;
+}
+.admin-content-box .total-sales-box-2 .total-sales-number .details{
+    font-size: 14px;
+    color: var(--bg-color);
+    font-family: Montserrat-Bold;
+}
+    
+
+/** Admin Food Menu styling **/
+.admin-content-box .admin-nav-bar{
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    height: auto;
+    align-content: center;
+    margin-top: 10px;
+    align-items: center;
+}
+.admin-content-box .admin-nav-bar ul{
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow: auto;
+    flex-direction: row;
+    height: auto;
+    align-content: center;
+    align-items: center;
+    justify-content:space-between; 
+    flex-wrap: wrap;
+}
+.admin-content-box .admin-nav-bar ul li{
+    width: 120px;
+    position: relative;
+    margin-right: 0px;
+    margin-top: 10px;
+    padding: 0px;
+    text-align: center;
+    font-size: 12px;
+}
+.admin-content-box .admin-nav-bar ul li a{
+    background-color: var(--bg-color);
+    position: relative;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: var(--color);
+    border-radius: 3px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+}    
+
+/** Admin food display table **/
+.admin-content-box .food-display-table{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-content-box .food-display-table #table-heading{
+    width: 30%;
+    height: auto;
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+.admin-content-box .food-display-table #table-content{
+    width: 48%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 15px 0;
+}
+#table-content .serial-number, .food-image, .food-name, .food-price, .action{
+    font-size: 12px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    color: black;
+}
+#table-content .serial-number{
+    font-size: 12px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    color: black;
+    background-color: var(--color);
+    display: none;
+}
+#table-content .food-name{
+    font-family: Montserrat-Bold;
+    font-size: 12px;
+}
+#table-content .food-img{
+    margin: 10px auto;
+}
+#table-content .food-image img{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    object-fit: scale-down;
+}
+#table-content .food-price{
+    font-size: 12px;
+}
+#table-content .action{
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 5px;
+    color: black;
+}
+    
+    
+
+
+/** Admin Add food styling **/
+.back-btn{
+    font-size: 12px;
+    width: 140px;
+}
+.box-content-heading{
+    font-size: 14px;
+    padding: 5px;
+}
+.add-food-form-container{
+    padding: 5px;
+}
+.add-food-form-container form{
+    flex-direction: column-reverse;
+    justify-content: space-around;
+}
+.add-food-form-container form .box-1{
+    width: 100%;
+}
+.add-food-form-container form .box-2{
+    width: 100%;
+}
+.add-food-form-container form .box-2 .upload-notice{
+    text-align: left;
+    font-size: 14px;
+    font-family: Montserrat-Regular;
+}
+.add-food-form-container form .box-2 .categories-list{
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+    padding-top: 10px;
+}
+.add-food-form-container form .box-2 .categories-list ul{
+    width: 100%;
+}
+.add-food-form-container form .box-2 .categories-list ul li{
+    width: 100%;
+    margin: 15px auto;
+    font-size: 12px;
+    height: auto;
+    position: relative;
+}
+.add-food-form-container form .box-2 .categories-list ul li span{
+    width: 60%;
+    height: auto;
+    padding: 10px;
+}
+.add-food-form-container form .box-2 .categories-list ul li a{
+    display: inline-block;
+    margin: 0 5px;
+}
+.add-food-form-container .form-image{
+    height: 280px;
+}
+.add-food-form-container .form-group{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+.add-food-form-container .form-group-file{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 0px;
+}
+.add-food-form-container .form-group-file input{
+    border-radius: 2px;
+}
+.add-food-form-container .form-group-file span{
+    background-color: var(--bg-color);
+    border-radius: 2px;
+}
+.add-food-form-container .form-group .form-label{
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+    font-size: 12px;
+    color: rgba(152, 8, 3, 0.7);
+}
+.add-food-form-container .form-group input, textarea, select{
+    width: 100%;
+    display: block;
+    padding: 15px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+.add-food-form-container .form-group select option{
+    font-size: 12px;
+}
+.add-food-form-container .form-group span{
+    position: absolute;
+    top: 40px;
+    right: 15px;
+    color: var(--bg-color);
+}
+.add-food-form-container .form-group button{
+    width: 100%;
+    margin: 25px auto;
+    border-radius: 2px;
+}
+
+    
+    
+/** Edit Food Styling **/
+.edit-food-form-container{
+    padding: 10px;
+}
+.edit-food-form-container .flex-form-container{
+    justify-content: space-between;
+}
+.edit-food-form-container .flex-form-container .box-1, .box-2{
+    width: 100%;
+    height: auto;
+}
+.edit-food-form-container .flex-form-container .form-image{
+    width: 100%;
+}
+.edit-food-form-container .flex-form-container .form-group-2{
+    width: 100%;
+}
+.edit-food-form-container .flex-form-container .form-group-file-2{
+    position: relative;
+    width: 100%;
+}
+.edit-food-form-container .flex-form-container .form-group-file-2 span{
+    border-radius: 5px;
+}
+.edit-food-form-container .flex-form-container .form-label{
+    width: 100%;
+}
+.edit-food-form-container .flex-form-container .form-group-2 .form-label{
+    font-size: 12px;
+}
+.edit-food-form-container .flex-form-container .form-group-2 .form-input, .form-textarea, .form-select{
+    font-size: 12px;
+}
+.edit-food-form-container .flex-form-container .form-group-2 .form-select option{
+    font-size: 12px;
+}
+.edit-food-form-container .flex-form-container .form-group-2 span{
+    position: absolute;
+}
+.edit-food-form-container .flex-form-container .form-group-2 button{
+    width: 150px;
+    margin: 20px 0;
+    font-size: 12px;
+}
+    
+    
+    
+/** Order Styling **/
+.admin-order-container{
+    width: 100%;
+}
+.admin-order-container table tr th{
+    padding: 10px 2px;
+    font-size: 12px;
+    font-family: Montserrat-Regular;
+}
+.admin-order-container table tr td{
+    padding: 10px 2px;
+    font-size: 12px;
+}
+.admin-order-container table tr td a{
+    font-size: 12px;
+}
+.admin-order-container table tr th:nth-child(3){
+    display: none;
+}
+.admin-order-container table tr td:nth-child(3){
+    display: none;
+}
+.admin-content-display .pagination{
+    text-align: right;
+}
+
+    
+    
+
+/** Admin-order-table Details Styling **/
+.order-details-container{
+    width: 100%;
+    flex-direction: column;
+}
+.order-details-container .box-one{
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+.order-details-container .box-one .box-one-holder{
+    margin: 20px 0;
+    text-align: center;
+}
+.order-details-container .box-two{
+    width: 100%;
+    align-items: center;
+}
+.order-details-container .box-one .order-img{
+    width: 250px;
+    height: 230px;
+}
+.order-details-container .box-one .order-img img{
+    position: relative;
+    object-fit: fill;
+}
+.order-details-container .box-one .order-fn{
+    font-size: 12px;
+}
+.order-details-container .box-one .order-fp{
+    font-size: 12px;
+}
+.order-details-container .box-one .order-fq{
+    font-size: 12px;
+}
+.order-details-container .box-two .box-two-holder{
+    width: 100%;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
+}
+.order-details-container .box-two .order-tp{
+    font-size: 12px;
+}
+.order-details-container .box-two .order-tq{
+    font-size: 12px;
+}
+.order-details-container .box-two .order-st{
+    font-size: 12px;
+}
+.order-details-container .box-two .order-v{
+    font-size: 12px;
+}
+.order-details-container .box-two .order-t{
+    font-size: 14px;
+}
+    
+    
+    
+}
+}
+
