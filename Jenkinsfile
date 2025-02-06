@@ -30,6 +30,7 @@ pipeline {
                     // Clean and copy new files to the deploy directory
                     sh "rm -rf $DEPLOY_DIR/*"
                     sh "cp -r workspace/* $DEPLOY_DIR/"
+                    sh "chown -R www-data:www-data $DEPLOY_DIR/"
                 }
             }
         }
@@ -47,9 +48,10 @@ pipeline {
     post {
         success {
             script {
-                // Write the deployed version to the version file
+                // Get the deployed tag to write it to the version file
                 def releaseTag = sh(script: 'git describe --tags --abbrev=0', returnStdout: true).trim()
-                sh "echo '${releaseTag}' > $VERSION_FILE"
+                // Use sudo to write the tag to the version file
+                sh "echo '${releaseTag}' | sudo tee $VERSION_FILE > /dev/null"
                 echo "Deployed tag written to ${VERSION_FILE}"
             }
         }
