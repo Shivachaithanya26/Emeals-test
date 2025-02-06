@@ -30,7 +30,6 @@ pipeline {
                     sh """
                         rm -rf $DEPLOY_DIR/*
                         cp -r workspace/* $DEPLOY_DIR/
-                        chown -R www-data:www-data $DEPLOY_DIR/
                     """
                 }
             }
@@ -39,7 +38,7 @@ pipeline {
         stage('Restart Nginx') {
             steps {
                 script {
-                    sh "sudo systemctl restart nginx"
+                    sh "systemctl restart nginx"
                 }
             }
         }
