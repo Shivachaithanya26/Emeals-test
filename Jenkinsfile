@@ -38,7 +38,7 @@ pipeline {
         stage('Restart Nginx') {
             steps {
                 script {
-                    sh "systemctl restart nginx"
+                    sh "sudo systemctl restart nginx"
                 }
             }
         }
