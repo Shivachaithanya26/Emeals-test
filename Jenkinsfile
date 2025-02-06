@@ -6,17 +6,18 @@ pipeline {
         REPO_URL = "https://github.com/Shivachaithanya26/Emeals-test.git"
     }
 
-    stage('Checkout Release Tag') {
-    steps {
-        script {
-            // Clean the workspace directory before cloning the repository
-            sh "rm -rf workspace"
-            // Now clone the repository using the release tag
-            def releaseTag = sh(script: 'git describe --tags', returnStdout: true).trim()
-            sh "git clone --branch $releaseTag --single-branch $REPO_URL workspace"
-          }
-       }
-    }
+    stages {
+        stage('Checkout Release Tag') {
+            steps {
+                script {
+                    // Clean the workspace directory before cloning the repository
+                    sh "rm -rf workspace"
+                    // Now clone the repository using the release tag
+                    def releaseTag = sh(script: 'git describe --tags', returnStdout: true).trim()
+                    sh "git clone --branch $releaseTag --single-branch $REPO_URL workspace"
+                }
+            }
+        }
 
         stage('Deploy to Server') {
             steps {
@@ -24,6 +25,7 @@ pipeline {
                     // Clean and copy new files to the deploy directory
                     sh "rm -rf $DEPLOY_DIR/*"
                     sh "cp -r workspace/* $DEPLOY_DIR/"
+                    sh "chown -R www-data:www-data $DEPLOY_DIR/"
                 }
             }
         }
