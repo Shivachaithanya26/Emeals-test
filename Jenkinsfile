@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: GIT_REPO
+                git branch: 'master', url: GIT_REPO
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
 
         stage('Restart Web Server') {
             steps {
-                sh "sudo systemctl restart apache2"
+                sh "sudo systemctl restart nginx"
             }
         }
     }
