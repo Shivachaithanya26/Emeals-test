@@ -29,7 +29,6 @@ pipeline {
                     // Clean and copy new files to the deploy directory
                     sh "rm -rf $DEPLOY_DIR/*"
                     sh "cp -r workspace/* $DEPLOY_DIR/"
-                    sh "chown -R www-data:www-data $DEPLOY_DIR/"
                 }
             }
         }
