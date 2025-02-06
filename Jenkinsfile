@@ -16,7 +16,6 @@ pipeline {
         stage('Deploy Code') {
             steps {
                 sh """
-                    rm -rf ${DEPLOY_DIR}/*
                     cp -r . ${DEPLOY_DIR}/
                 """
             }
@@ -24,7 +23,7 @@ pipeline {
 
         stage('Restart Web Server') {
             steps {
-                sh "sudo systemctl restart nginx"
+                sh "systemctl restart nginx"
             }
         }
     }
