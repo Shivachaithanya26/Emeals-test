@@ -2,35 +2,30 @@ pipeline {
     agent any
 
     environment {
-        DEPLOY_USER = 'ubuntu'  // Change to your AWS server's username
-        DEPLOY_HOST = '54.82.127.214'  // Change to your AWS server's IP
-        DEPLOY_DIR = '/var/www/html/'  // Directory where your site is hosted
-        GIT_REPO = 'git@github.com:Shivachaithanya26/Emeals-test.git'  // Use SSH URL
-        SSH_CREDENTIALS_ID = 'jenkins-ssh-key-id'  // Jenkins stored SSH Key
+        GIT_REPO = 'https://github.com/Shivachaithanya26/Emeals-test.git'
+        DEPLOY_DIR = '/var/www/html'
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                sshagent(['jenkins-ssh-key-id']) {
-                    sh 'sudo git clone --depth=1 $GIT_REPO repo || (cd repo && sudo git pull origin main)'
-                }
+                git branch: 'main', url: GIT_REPO
             }
         }
 
-        stage('Deploy to Server') {
+        stage('Deploy Code') {
             steps {
-                script {
-                    sshagent(['jenkins-ssh-key-id']) {
-                        sh """
-                            ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST <<EOF
-                            cd $DEPLOY_DIR
-                            sudo git pull origin main
-                            sudo systemctl restart nginx
-                            EOF
-                        """
-                    }
-                }
+                sh """
+                    rm -rf ${DEPLOY_DIR}/*
+                    cp -r . ${DEPLOY_DIR}/
+                    chown -R www-data:www-data ${DEPLOY_DIR}
+                """
+            }
+        }
+
+        stage('Restart Web Server') {
+            steps {
+                sh "sudo systemctl restart apache2"
             }
         }
     }
