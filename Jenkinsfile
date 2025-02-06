@@ -12,8 +12,12 @@ pipeline {
                 script {
                     // Clean the workspace directory before cloning the repository
                     sh "rm -rf workspace"
-                    // Now clone the repository using the release tag
+                    // Fetch all tags first to ensure we can access them
+                    sh "git fetch --tags"
+                    // Get the latest release tag or a specific tag
                     def releaseTag = sh(script: 'git describe --tags', returnStdout: true).trim()
+                    echo "Checking out release tag: ${releaseTag}"
+                    // Now clone the repository using the valid release tag
                     sh "git clone --branch $releaseTag --single-branch $REPO_URL workspace"
                 }
             }
