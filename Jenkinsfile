@@ -16,8 +16,8 @@ pipeline {
         stage('Deploy Code') {
             steps {
                 sh """
-                    sudo rm -rf ${DEPLOY_DIR}/*
-                    sudo cp -r . ${DEPLOY_DIR}/
+                    rm -rf ${DEPLOY_DIR}/*
+                    cp -r . ${DEPLOY_DIR}/
                     sudo chown -R www-data:www-data ${DEPLOY_DIR}
                 """
             }
