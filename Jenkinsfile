@@ -7,30 +7,23 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Checkout Release Tag') {
             steps {
                 script {
-                    sh "rm -rf workspace && git clone $REPO_URL workspace"
+                    // Get the release tag
+                    def releaseTag = sh(script: 'git describe --tags', returnStdout: true).trim()
+                    // Clone the repository with the specific tag
+                    sh "git clone --branch $releaseTag --single-branch $REPO_URL workspace"
                 }
             }
         }
 
-        stage('Debug Jenkins User') {
-            steps {
-                script {
-                    sh 'whoami'
-                    sh 'sudo -l'
-                }
-            }
-        }
-        
         stage('Deploy to Server') {
             steps {
                 script {
-                    sh """
-                        rm -rf $DEPLOY_DIR/*
-                        cp -r workspace/* $DEPLOY_DIR/
-                    """
+                    // Clean and copy new files to the deploy directory
+                    sh "rm -rf $DEPLOY_DIR/*"
+                    sh "cp -r workspace/* $DEPLOY_DIR/"
                 }
             }
         }
@@ -38,6 +31,7 @@ pipeline {
         stage('Restart Nginx') {
             steps {
                 script {
+                    // Restart Nginx to apply changes
                     sh "sudo systemctl restart nginx"
                 }
             }
