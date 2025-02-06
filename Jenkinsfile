@@ -2,29 +2,46 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO = 'https://github.com/Shivachaithanya26/Emeals-test.git'
-        DEPLOY_DIR = '/var/www/html'
+        DEPLOY_DIR = "/var/www/html"
+        REPO_URL = "https://github.com/Shivachaithanya26/Emeals-test.git"
     }
 
     stages {
-        stage('Checkout Code') {
+        stage('Clone Repository') {
             steps {
-                git branch: 'master', url: GIT_REPO
+                script {
+                    sh "rm -rf workspace && git clone $REPO_URL workspace"
+                }
             }
         }
 
-        stage('Deploy Code') {
+        stage('Deploy to Server') {
             steps {
-                sh """
-                    cp -r . ${DEPLOY_DIR}/
-                """
+                script {
+                    sh """
+                        sudo rm -rf $DEPLOY_DIR/*
+                        sudo cp -r workspace/* $DEPLOY_DIR/
+                        sudo chown -R www-data:www-data $DEPLOY_DIR/
+                    """
+                }
             }
         }
 
-        stage('Restart Web Server') {
+        stage('Restart Nginx') {
             steps {
-                sh "systemctl restart nginx"
+                script {
+                    sh "sudo systemctl restart nginx"
+                }
             }
+        }
+    }
+
+    post {
+        success {
+            echo "Deployment successful!"
+        }
+        failure {
+            echo "Deployment failed!"
         }
     }
 }
