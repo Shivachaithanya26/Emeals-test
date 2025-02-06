@@ -19,9 +19,9 @@ pipeline {
             steps {
                 script {
                     sh """
-                        sudo rm -rf $DEPLOY_DIR/*
-                        sudo cp -r workspace/* $DEPLOY_DIR/
-                        sudo chown -R www-data:www-data $DEPLOY_DIR/
+                        rm -rf $DEPLOY_DIR/*
+                        cp -r workspace/* $DEPLOY_DIR/
+                        chown -R www-data:www-data $DEPLOY_DIR/
                     """
                 }
             }
