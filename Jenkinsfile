@@ -18,7 +18,6 @@ pipeline {
                 sh """
                     rm -rf ${DEPLOY_DIR}/*
                     cp -r . ${DEPLOY_DIR}/
-                    sudo chown -R www-data:www-data ${DEPLOY_DIR}
                 """
             }
         }
