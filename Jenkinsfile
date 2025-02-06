@@ -15,6 +15,15 @@ pipeline {
             }
         }
 
+        stage('Debug Jenkins User') {
+            steps {
+                script {
+                    sh 'whoami'
+                    sh 'sudo -l'
+                }
+            }
+        }
+        
         stage('Deploy to Server') {
             steps {
                 script {
