@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_REPO = 'https://github.com/Shivachaithanya26/Emeals-test.git'
-        DEPLOY_DIR = '/home/ubuntu/var/www/html'
+        DEPLOY_DIR = '/var/www/html'
     }
 
     stages {
