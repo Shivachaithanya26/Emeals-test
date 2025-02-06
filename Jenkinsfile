@@ -14,10 +14,10 @@ pipeline {
                     sh "rm -rf workspace"
                     // Fetch all tags first to ensure we can access them
                     sh "git fetch --tags"
-                    // Get the latest release tag or a specific tag
-                    def releaseTag = sh(script: 'git describe --tags', returnStdout: true).trim()
+                    // Use the specific tag you want to checkout
+                    def releaseTag = "v1.0.4"  // Directly specify your release tag
                     echo "Checking out release tag: ${releaseTag}"
-                    // Now clone the repository using the valid release tag
+                    // Now clone the repository using the release tag
                     sh "git clone --branch $releaseTag --single-branch $REPO_URL workspace"
                 }
             }
